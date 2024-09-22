@@ -105,6 +105,108 @@ public class EmpDaoImpl implements EmpDao {
 		// 최종 결과 반환
 		return list;
 	}
-	
-	
+
+	@Override
+	public List<Emp> selectByDeptno(int deptno) {
+		// SQL작성
+		String sql = "";
+		sql += "SELECT * FROM emp";
+		sql += " WHERE deptno = ?";
+		sql += " ORDER BY empno";
+		
+		// 조회 결과를 저장할 객체
+		List<Emp> list = new ArrayList<>();
+		
+		try {
+			// SQL 수행 객체
+			ps = conn.prepareStatement(sql);
+			
+			// ? 파라미터 채우기
+			ps.setInt(1, deptno);
+			
+			// SQL 수행 및 결과 저장
+			rs = ps.executeQuery();
+			
+			// 조회 결과 처리
+			while ( rs.next() ) {
+				
+				//조회 결과의 각 행 데이터를 저장할 객체
+				Emp emp = new Emp();
+				
+				emp.setEmpno( rs.getInt("empno") );
+				emp.setEname( rs.getString("ename") );
+				emp.setJob( rs.getString("job") );
+				emp.setMgr( rs.getInt("mgr") );
+				
+				emp.setHiredate( rs.getDate("hiredate") );
+				emp.setSal( rs.getDouble("sal") );
+				emp.setComm( rs.getDouble("comm") );
+				emp.setDeptno( rs.getInt("deptno") );
+				
+				//전체 조회 결과로 저장하기
+				list.add(emp);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 자원 해제
+			
+			try {
+				if(rs!= null && !rs.isClosed() )	rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(ps!= null && !ps.isClosed() )	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 최종 결과 반환
+		return list;
+	}
+
+	@Override
+	public int insertEmp(Emp data) {
+
+		//SQL작성
+		String sql = "";
+		sql += "INSERT INTO emp ( empno, ename, deptno )";
+		sql += " VALUES ( ?, ?, ? )";
+		
+		int res = 0;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt( 1,  data.getEmpno() );
+			ps.setString( 2, data.getEname() );
+			ps.setInt( 3, data.getDeptno() );
+			
+			res = ps.executeUpdate();
+			//성공하면 commit, 실패하면 rollback해야 한다
+			conn.commit(); //삽입 성공 후 커밋
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				//삽입 실패(예외) 후 롤백
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			//자원 해제
+			try {
+				if(ps!=null && !ps.isClosed()) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return res;
+	}
 }
