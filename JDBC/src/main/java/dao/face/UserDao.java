@@ -8,9 +8,9 @@ public interface UserDao {
 
 	public List<User> selectAll();
 
-	public void insertUser(User insertUser);
+	public int insertUser(User data);
 
-	public User selectByIdx(int i);
+	public User selectByIdx(int idx);
 
 	public void deleteByIdx(int i);
 
