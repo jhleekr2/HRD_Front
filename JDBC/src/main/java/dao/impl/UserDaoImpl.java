@@ -108,6 +108,7 @@ public class UserDaoImpl implements UserDao{
 		System.out.print("userId : ");
 		data.setUserid(sc.next()); // 엔터키 제외하고 입력받음
 		// 여기서 sc.nextLine() 쓰면 엔터키를 한번더 입력해야하는 버그 발생!
+		// https://hwangpenguin.tistory.com/44 참고
 		
 		System.out.print("name : ");
 		sc.nextLine(); // 버퍼 비우기
