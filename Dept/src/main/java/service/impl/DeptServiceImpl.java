@@ -1,5 +1,16 @@
 package service.impl;
 
-public class DeptServiceImpl {
+import java.util.List;
+
+import dto.Dept;
+import service.face.DeptService;
+
+public class DeptServiceImpl implements DeptService {
+
+	@Override
+	public List<Dept> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
