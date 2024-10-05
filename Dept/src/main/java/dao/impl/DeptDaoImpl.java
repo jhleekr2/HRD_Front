@@ -1,5 +1,7 @@
 package dao.impl;
 
-public class DeptDaoImpl {
+import dao.face.DeptDao;
+
+public class DeptDaoImpl implements DeptDao {
 
 }

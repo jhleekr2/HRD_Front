@@ -8,4 +8,5 @@ public interface DeptService {
 
 	public List<Dept> listAll();
 
+
 }
