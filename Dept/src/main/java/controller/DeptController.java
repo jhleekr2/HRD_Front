@@ -46,6 +46,21 @@ public class DeptController {
 			break;
 			
 		case 2: //신규 입력
+			System.out.println("\n 새로운 부서 정보 입력");
+			
+			//DB에 등록할 Dept 정보 입력받기
+			Dept newDept = deptService.inputDept();
+			
+			//DB에 newDept 정보 삽입하기
+//			deptService.register( newDept );
+			
+			//이후 부서 정보 삽입에 성공했는지 실패했는지 대입
+			boolean result = deptService.register( newDept );
+			
+			System.out.print("\n\t>> ");
+			if( result )	System.out.println("부서 정보 삽입 성공");
+			else	System.out.println("부서 정보 삽입 실패");
+			
 			break;
 			
 		case 3: //입력한 부서 번호로 조회
@@ -54,6 +69,10 @@ public class DeptController {
 		default:
 			System.out.println("1-3만 입력하세요");
 		}
+	}
+	
+	public static void main(String[] args) {
+		new DeptController().menu();
 	}
 	
 }
