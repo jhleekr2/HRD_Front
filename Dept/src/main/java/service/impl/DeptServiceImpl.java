@@ -73,4 +73,28 @@ public class DeptServiceImpl implements DeptService {
 		}
 	}
 
+	@Override
+	public Dept inputDeptno() {
+		Scanner sc = new Scanner(System.in);
+		
+		//조회할 부서 입력 객체
+		Dept deptno = new Dept();
+		
+		System.out.print("조회할 부서 번호는? ");
+		
+		//입력한 부서 번호를 DTO에 저장
+		deptno.setDeptno( sc.nextInt() );
+		
+		//부서 번호 포함된 DTO객체 반환
+		return deptno;
+	}
+
+	@Override
+	public Dept deptInfo(Dept deptno) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		Dept list = deptDao.selectByDeptno( conn, deptno );
+		return list;
+	}
+
 }

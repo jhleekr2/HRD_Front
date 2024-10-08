@@ -84,4 +84,46 @@ public class DeptDaoImpl implements DeptDao {
 		return res;
 	}
 
+	@Override
+	public Dept selectByDeptno(Connection conn, Dept deptno) {
+		System.out.println("DeptDao] select(conn, deptno) 호출");
+
+		//DB관련 객체
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		//SQL코드
+		String sql = "";
+		sql += "SELECT * FROM dept";
+		sql += " WHERE deptno = ?";
+		
+		Dept info = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+
+			int idx = 1;
+			ps.setInt(idx++, deptno.getDeptno());
+			
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				info = new Dept();
+				
+				info.setDeptno( rs.getInt("deptno") );
+				info.setDname( rs.getString("dname") );
+				info.setLoc( rs.getString("loc") );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// close안하면 Exception이 계속 발생한다.
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(ps);
+		}
+		
+		//최종 조회 결과 반환 - 프로젝트 할때 return null 로 되어 있지 않도록 주의한다!
+		return info;
+	}
+
 }

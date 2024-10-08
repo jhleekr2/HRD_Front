@@ -64,6 +64,25 @@ public class DeptController {
 			break;
 			
 		case 3: //입력한 부서 번호로 조회
+			System.out.println("\n 부서 정보 조회");
+			
+			//조회할 부서 번호 입력받기 - DeptService 이용
+			// -> .inputDeptno()
+			// 이때 int형으로 입력받아도 되지만, Dept형으로 입력받는 것이
+			//개발에 더 편리하다고 함(DTO로 처리).
+			//(사실 int형으로 처리해도 되긴함)-유지보수에 불리
+			Dept deptno = deptService.inputDeptno();
+			
+			//입력된 Dept정보 입력값 확인
+//			System.out.println("DeptController] " + deptno);
+			
+			//부서번호를 이용하여 조회하기 - DeptService 이용
+			// -> .deptInfo()
+			Dept info = deptService.deptInfo(deptno);
+			
+			//부서정보 출력하기 - System.out.println() 이용
+			if( info != null ) System.out.println(info);
+			else System.out.println("부서는 존재하지 않습니다");
 			break;
 		
 		default:

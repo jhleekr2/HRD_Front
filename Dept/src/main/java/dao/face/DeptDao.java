@@ -26,4 +26,13 @@ public interface DeptDao {
 	 */
 	public int insertDept(Connection conn, Dept newDept);
 
+	/**
+	 * 주어진 DTO의 저장된 부서 번호를 이용하여 부서 정보를 조회한다
+	 * 
+	 * @param conn - DB연결 객체
+	 * @param deptno - 조회할 부서 정보
+	 * @return 조회된 부서 목록
+	 */
+	public Dept selectByDeptno(Connection conn, Dept deptno);
+
 }
