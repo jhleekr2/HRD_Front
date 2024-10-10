@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>ServletEx</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- ** web.xml 파일 -->
+  <!-- 배포관리자(Deployment Descriptor) -->
+  <!-- Web Application이 서버에 배포되는 방식을 설정하는 파일이다 -->
+  
+  <!-- Tomcat 서버가 실행(start)될 때 web.xml 파일을 읽어
+  		웹 어플리케이션의 배포 방식을 적용한다 -->
+  		
+  <!-- 톰캣 서버에 서블릿 클래스를 등록한다 -->
+  <servlet>
+  
+  	<!-- 등록될 서블릿의 이름(변수명)을 적용한다 -->
+  	<servlet-name>helloServlet</servlet-name>
+  	
+  	<!-- 등록될 서블릿의 풀네임(패키지 포함)을 적는다 -->
+  	<servlet-class>hello.HelloServlet</servlet-class>
+  </servlet>
+
+  <!-- 요청 URL에 따라 실행될 서블릿 클래스를 지정한다 -->
+  <servlet-mapping>
+  
+  	<!-- 연결(매핑)될 서블릿 클래스의 이름을 적용한다 -->
+  	<servlet-name>helloServlet</servlet-name>
+    
+  	<!-- 서블릿에 연결(매핑)될 URL 패턴을 지정한다 -->
+  	<!-- -> 첫 글자로 '/'슬래시로 시작한다 -->
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
