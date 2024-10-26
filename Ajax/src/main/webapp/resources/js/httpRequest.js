@@ -41,7 +41,10 @@ function sendRequest(method, url, params, callback) {
 	httpRequest.open(httpMethod, httpUrl, true);
 	
 	//웹 서버에 전송할 컨텐츠 타입 지정
-	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	//위 코드에서 한글 깨짐 현상 해결
+	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 	
 	//콜백 함수 지정
 	httpRequest.onreadystatechange = callback;
