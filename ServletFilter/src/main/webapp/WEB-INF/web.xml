@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>ServletFilter</display-name>
+  <welcome-file-list>
+  <!-- 서버만 방문했을 때 화면에 보여주는 기본 페이지 - welcome page -->
+<!--   <welcome-file>Welcome자원의 URL(정적, 동적 페이지 모두 가능)</welcome-file> -->
+<!--   동작원리 - /경로일때 welcome-file로 forward시켜준다 -->
+<!--   welcome-file에서 자주 쓰는 것들이 index, default(최근에는 잘 사용하지 않음) -->
+<!--   welcome-file에 기록된 것 중에 위쪽부터 적용된다 -->
+	<welcome-file>index</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!-- 필터 클래스를 서블릿 컨테이너에 등록한다 -->
+  <filter>
+  	<filter-name>hangulEncodingFilter</filter-name>
+  	<filter-class>filter.EncodingFilter</filter-class>
+  </filter>
+  
+    <!-- 필터 클래스가 적용될 url-pattern 을 지정한다 -->
+<!--   <filter-mapping> -->
+<!--      <filter-name>hangulEncodingFilter</filter-name> -->
+<!--      <url-pattern>/board/insert</url-pattern> -->
+<!--   </filter-mapping> -->
+  
+<!--   <filter-mapping> -->
+<!--      <filter-name>hangulEncodingFilter</filter-name> -->
+<!--      <url-pattern>/*</url-pattern> -->
+<!--   </filter-mapping> -->
+
+<!-- 필터의 동작 순서 조절을 위해서는 xml파일을 수정해야 한다 -->
+<!-- 필터 체인의 순서는 filter-mapping 태그의 작성된 순서로 조절할 수 있다 -->
+<!-- 되도록이면 필터의 동작순서에 영향을 받지 않도록 필터를 설계하는 것이 좋다 -->
+
+	  <filter-mapping>
+	  	<filter-name>testFilter</filter-name>
+	  	<url-pattern>/board/insert</url-pattern>
+	  </filter-mapping>
+	
+	  <filter-mapping>
+	     <filter-name>hangulEncodingFilter</filter-name>
+	     <url-pattern>/board/*</url-pattern>
+	  </filter-mapping>
+	  
+	  <filter-mapping>
+	     <filter-name>hangulEncodingFilter</filter-name>
+	     <url-pattern>/login/*</url-pattern>
+	  </filter-mapping>
+    
+</web-app>
