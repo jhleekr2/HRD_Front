@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+ 
+<!-- Ctrl + space 눌러서 mapper 자동완성이 뜨는지 확인. 안뜨면 DTD잘못 작성한것! -->   
+
+<mapper namespace="dao.face.DeptDao">
+<!-- Ctrl + space 눌러서 dao.face.DeptDao 링크가 걸리는지 확인한다 -->
+
+
+<!-- <select id="메소드이름" resultType="리턴타입" parameterType="매개변수타입"> 적으면 Mybatis에 의해 서로 연결된다 -->
+	<select id="selectAll" resultType="dto.Dept">
+		SELECT
+			deptno, dname, loc
+		FROM dept
+		ORDER BY deptno
+	</select>
+	<!-- 단, 이때 SQL구문에 있는 ;는 뺀다 -->
+	<!-- 자바 SQL 구문의 ?는 #{매개변수명}으로 치환된다 -->
+	
+	<select id="selectByDeptno" resultType="dto.Dept" parameterType="int">
+		SELECT
+			deptno, dname, loc
+		FROM dept
+		WHERE deptno = #{deptno}
+	</select>
+	
+	<!--  String은 객체(Class)이므로 원래는 java.lang.String으로 써야 하지만
+	Mybatis에서 string이라고 써도 특별히 받아준다 -->
+	<select id="selectByDname" resultType="dto.Dept" parameterType="string">
+		SELECT
+			deptno, dname, loc
+		FROM dept
+		WHERE dname = #{dname}
+	</select>
+	<!-- String 타입일때는 #{매개변수명}을 마음대로 적어도 되지만
+	dto.Dept타입일때는 반드시 #{매개변수명}에 멤버필드 이름을 적어야 한다 -->
+	<select id="selectByDeptDname" resultType="dto.Dept" parameterType="dto.Dept">
+		SELECT
+			deptno, dname, loc
+		FROM dept
+		WHERE dname = #{dname}
+	</select>
+	
+	<insert id="insertDept" parameterType="dto.Dept">
+		INSERT INTO dept ( deptno, dname, loc )
+		VALUES ( #{deptno}, #{dname}, #{loc} )
+	</insert>
+	
+
+
+</mapper> 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 마이바티스 3 Configuration DTD -->
+<!-- DTD(DOCTYPE, Document Type Definition) -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- 최상위 부모 태그 -->
+<!-- 마이바티스 3의 설정 항목을 넣는 태그 -->
+<configuration>
+	
+	<!-- 프로그램이 접속할 수 있는 DB정보들을 설정하는 태그 -->
+	<environments default="development">
+		
+		<!-- 접속할 DB에 대한 정보 -->
+		<environment id="development">
+		
+			<!-- JDBC를 이용하여 트랜잭션을 관리하도록 설정한다 -->
+			<transactionManager type="JDBC"/>
+			
+			<!-- DB 정보를 설정한다 -->
+			<!-- POOLED 때문에 싱글톤 패턴이 좀 깨지지만, Pool 관리는 Mybatis, Spring Framework가 알아서 할것이다 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<!-- Ctrl + 마우스 키 눌러서 value에 밑줄 안나오면 잘못된 것! -->
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+				<property name="username" value="scott"/>
+				<property name="password" value="tiger"/>
+			</dataSource>
+		
+		</environment>
+	</environments>
+	
+	<!-- SQL쿼리들을 작성해둘 마이바티스 매퍼(Mapper) 파일들의 위치를 설정한다 -->
+	<mappers>
+		<mapper resource="dao/mapper/DeptMapper.xml"/>
+	</mappers>
+</configuration>
+
+
