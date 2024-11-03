@@ -21,6 +21,8 @@ public class MyBatisConnectionFactory {
 		try {
 			// Configuration XML 파일을 이용하여 문자 입력 스트림으로 변환
 			Reader reader = Resources.getResourceAsReader(res);
+			// 여기서 반드시 org.apache.ibatis.io.Resources를 import 해야 한다
+			// 안그러면 에러 난다!
 
 			// 싱글톤 유지
 			if (sqlSessionFactory == null) {
