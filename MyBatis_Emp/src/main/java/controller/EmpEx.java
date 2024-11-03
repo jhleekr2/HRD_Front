@@ -46,21 +46,27 @@ public class EmpEx {
 		
 		Emp emp = new Emp();
 		
-		System.out.print("직원번호는?");
+		System.out.print("사원번호는?");
 		emp.setEmpno( sc.nextInt() );
 		
-		System.out.print("직원이름은?");
+		System.out.print("사원이름은?");
 		sc.nextLine(); //입력버퍼 비우기
 		emp.setEname( sc.nextLine() );
+		
+		System.out.println("사원직무는?");
+		emp.setJob( sc.nextLine() );
+
+		System.out.println("관리자는?");
+		emp.setMgr(0);
 		
 		System.out.println("입사날짜는(yyyy-MM-dd)?");
 //		emp.setHiredate(null);
 		// 현재 날짜 및 시간 가져오기
 //		Date date = new Date();
 		new Date();
-		// 날짜형식 포멧
+		// 날짜형식 포맷
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println( new Date() );
+		System.out.println("현재날짜 : " + new Date() );
 		
 		String da = sc.nextLine();
 //		emp.setHiredate(new Date());
@@ -70,6 +76,19 @@ public class EmpEx {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
+		
+		System.out.println("사원월급은?");
+		emp.setSal( sc.nextInt() );
+		sc.nextLine(); //입력버퍼 비우기
+		
+		
+		System.out.println("사원보너스는?");
+		emp.setComm( sc.nextInt() );
+		sc.nextLine(); //입력버퍼 비우기
+		
+		System.out.println("부서번호는?");
+		emp.setDeptno( sc.nextInt() );
+		sc.nextLine(); //입력버퍼 비우기
 		
 		//사원 번호로 조회하기 - 중복 데이터 확인
 		Emp result = empdao.selectByEmpno( emp );

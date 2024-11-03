@@ -7,20 +7,23 @@
 <mapper namespace="dao.EmpDao">
 
 	<select id="selectAll">
-		SELECT * FROM emp
+		SELECT empno, ename, job, mgr,
+			 hiredate, sal, comm, deptno FROM emp
 	</select>
 	
 	<select id="selectByEmpno" parameterType="dto.Emp">
-		SELECT * FROM emp
+		SELECT empno, ename, job, mgr,
+			 hiredate, sal, comm, deptno FROM emp
 			<where>
 				AND empno = #{empno }
 			</where>
 	</select>
 	
 	<insert id="insertEmp" parameterType="dto.Emp">
-		INSERT INTO emp (empno, ename, hiredate)
-		VALUES
-		(#{empno}, #{ename}, #{hiredate})
+		INSERT INTO emp (empno, ename, job, mgr
+		, hiredate, sal, comm, deptno)
+		VALUES ( #{empno}, #{ename}, #{job}, #{mgr}
+			 , #{hiredate}, #{sal}, #{comm}, #{deptno} )
 	</insert>
 	
 	<delete id="deleteByEmpNo" parameterType="dto.Emp">
