@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 마이바티스 3 Configuration DTD -->
+<!-- DTD(DOCTYPE, Document Type Definition) -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- 최상위 부모 태그 -->
+<!-- 마이바티스 3의 설정 항목을 넣는 태그 -->
+<configuration>
+
+	<!-- Properties파일에서 추출한 데이터들을 설정 XML 파일에서
+	 변수로 사용할 수 있도록 적용한다 -->
+	<properties resource="mybatis/db.properties" />
+	<!-- Properties 클래스 -->
+<!-- 	Map -->
+<!-- 	HashMap -->
+<!-- 	Hashtable -->
+<!-- 	Properties -->
+
+	<!-- 마이바티스의 동작을 설정한다 -->
+	<settings>
+		
+		<!-- 조회 컬럼의 _(underscore) 형식을
+			자바 멤버필드 형식인 CamelCase 형식으로 자동 변환한다 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		
+		<!-- Mapper 태그에서 데이터 파라미터에 JDBC타입을
+			명시하지 않을 경우 null값에 대한 처리 방식을 지정한다 -->
+		<!-- ** value속성값으로 NULL 을 적을 때 대문자로 작성한다 -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		
+	</settings>
+	
+	<!-- DTO클래스의 별칭을 지정한다 -->
+	<typeAliases>
+		<!-- 클래스 단위로 별칭 지정하기 -->
+<!-- 		<typeAlias type="DTO" alias="쓰고싶은별명"/> -->
+<!-- 		<typeAlias type="settings.dto.TestMember" alias="TM"/> -->
+<!-- 		<typeAlias type="settings.dto.Underscore" alias="Underscore"/> -->
+		
+		<!-- 패키지 단위로 별칭 지정하기 -->
+		<!-- -> 패키지 내의 모든 DTO클래스의 클래스명으로 별칭이 설정된다 -->
+		<package name="settings.dto"/>
+	</typeAliases>
+
+	<!--  프로그램이 접속할 수 있는 DB정보들을 설정하는 태그 -->
+	<environments default="development">
+			
+		<!-- 접속할 DB에 대한 정보 -->
+		<environment id="development">
+		
+			<!-- JDBC를 이용하여 트랜잭션을 관리하도록 설정한다 -->
+			<transactionManager type="JDBC"/>
+			
+			<!-- DB 정보를 설정한다 -->
+			<!-- POOLED 때문에 싱글톤 패턴이 좀 깨지지만, Pool 관리는 Mybatis, Spring Framework가 알아서 할것이다 -->
+			<dataSource type="POOLED">
+<!-- 				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/> -->
+				<property name="driver" value="${driver}"/>
+				<!-- Ctrl + 마우스 키 눌러서 value에 밑줄 안나오면 잘못된 것! -->
+<!-- 				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> -->
+				<property name="url" value="${url}"/>
+<!-- 				<property name="username" value="scott"/> -->
+				<property name="username" value="${username}"/>
+<!-- 				<property name="password" value="tiger"/> -->
+				<property name="password" value="${password}"/>
+			</dataSource>
+		
+		</environment>
+		
+	</environments>
+	
+	<!-- SQL쿼리들을 작성해둘 마이바티스 매퍼(Mapper) 파일들의 위치를 설정한다 -->
+	<mappers>
+		<mapper resource="dao/mapper/EmpMapper.xml"/>
+		<mapper resource="settings/dao/mapper/UnderscoreMapper.xml"/>
+		<mapper resource="settings/dao/mapper/TestMemberMapper.xml"/>
+		<mapper resource="selectKey/dao/SelectKeyMapper.xml"/>
+		<mapper resource="dynamic/dao/DynamicQueryMapper.xml"/>
+	</mappers>
+
+</configuration>
