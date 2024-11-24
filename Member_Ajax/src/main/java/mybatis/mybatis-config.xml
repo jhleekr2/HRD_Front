@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+
+	<properties resource="mybatis/db.properties" />
+
+	<settings>
+	
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		
+	</settings>
+
+	<typeAliases>
+		<package name="dto"/>
+		<!-- Aliases 설정때문에 몇시간을 헤멜 정도로 치명적인 버그가 발생했으니 유의한다! -->
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="/dao/mapper/MemberMapper.xml"/>
+	</mappers>
+
+</configuration>
