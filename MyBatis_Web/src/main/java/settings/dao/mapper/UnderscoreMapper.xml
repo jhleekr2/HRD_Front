@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="settings.dao.face.UnderscoreDao">
+	
+	<!-- ** 조회 결과(Result Set의 조회된 컬럼명과
+		resultType으로 지정된 DTO의 멤버 필드명이 다를 경우
+		조회 결과가 제대로 처리되지 않는다
+		
+		-> DTO객체가 만들어지지 않거나
+			멤버필드의 기본값으로 처리된다 -->
+	
+	<!-- ** TB의 컬럼에 _(underscore) 를 사용하고
+		DTO의 멤버필드는 Camel Case를 적용했을 경우 발생한다 -->
+	
+	<!-- **************************************************** -->
+	
+	<!-- ** 해결 방법1. -->
+	<!-- 	조회 컬럼에 별칭(Alias)를 적용해 멤버 필드명과 맞춘다 -->
+<!-- 	<select id="selectAll" resultType="settings.dto.Underscore"> -->
+<!-- 		SELECT -->
+<!-- 			user_id AS userId, -->
+<!-- 			user_pw AS userPw -->
+<!-- 		FROM underscore -->
+<!-- 	</select> -->
+	
+	<!-- **************************************************** -->
+
+	<!-- ** 해결 방법2. -->
+	<!-- resultMap 태그 이용하기 -->
+	
+<!-- 	<resultMap type="settings.dto.Underscore" id="U"> -->
+	
+<!-- 		<result column="user_id" property="userId"/> -->
+<!-- 		<result column="user_pw" property="userPw"/> -->
+		
+<!-- 	</resultMap> -->
+	
+<!-- 	<select id="selectAll" resultMap="U"> -->
+<!-- 		SELECT -->
+<!-- 			user_id, -->
+<!-- 			user_pw -->
+<!-- 		FROM underscore -->
+<!-- 	</select> -->
+	
+	<!-- **************************************************** -->
+
+	<!-- ** 해결 방법3. -->
+	<!-- 	마이바티스의 setting태그를 이용해
+		mapUnderscoreToCamelCase 설정을 추가한다 -->
+		
+	<!-- Mapper 태그에서는 변경할 사항이 없다 -->
+	
+<!-- 	<select id="selectAll" resultType="settings.dto.Underscore"> -->
+	<select id="selectAll" resultType="Underscore">
+		SELECT
+			user_id,
+			user_pw
+		FROM underscore
+	</select>
+	
+</mapper>
+
