@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 임베디드 방식 -->
+<!--  <style>태그를 이용하여 CSS선택자로 대상을 골라 스타일을 적용 -->
+
+<style type="text/css">
+
+/* p 태그선택자 - 모든 p태그를 선택한다 */
+p {
+    /* font-size속성 - 글자 크기를 지정한다 */
+    font-size: 30px; /* 브라우저의 기본 font-size=16px */
+}
+
+/* span 태그선택자 - 모든 span태그를 선택한다 */
+span {
+    /* font-style속성 - 글자 스타일을 지정한다 */
+    /* -> italic: 기울임 */
+    font-style: italic; /* 최근에 oblique는 쓰지 않는다 */
+}
+
+div {
+    /* font-family - 글꼴을 지정한다 */
+    font-family: 굴림;
+}
+
+/* ----------------------------------------------------- */
+
+/* hi 아이디 선택자 - id속성값이 "hi"인 태그를 선택한다 */
+#hi {
+    /* 글자색: 파랑 */
+    color: blue;
+}
+
+/* ----------------------------------------------------- */
+/* 클래스 선택자 - class속성값으로 해당 값을 가지는 태그들 선택 */
+
+.hello {
+	/* 글자색: 토마토 */
+	color: tomato;
+}
+
+.apple {
+	/* 글자 꾸밈선: 밑줄 */
+	text-decoration: underline;
+}
+
+</style>
+</head>
+<body>
+
+<h1>CSS 적용 방법</h1>
+<hr>
+
+<div>
+
+<!-- 인라인 방식 -->
+<!-- 태그에 style속성을 이용하여 직접 스타일을 적용한다 -->
+<p style="color: red;">안녕하세요</p>
+<!-- HTML 속성 - Attribute -->
+<!-- CSS style, Javascript 속성 - Property -->
+<!-- HTML과 CSS, Javascript의 속성은 다른 개념으로 코드상에서도 분리되어 있다. -->
+
+<!-- color 스타일 속성(property) - 글자 색상을 지정한다 -->
+</div>
+
+<hr>
+
+<div>
+
+<p class="apple">HIHIHIHIHIHIHI</p>
+
+<p class="hello">반가워요</p>
+
+<span>여기는 SPAN태그!</span><br><br>
+
+<span class="apple hello">안녕하세요!</span>
+
+<!-- p class와 span class는 공통적인 CSS 클래스를 지닌다. -->
+<!-- span class apple hello -> apple의 공통점과 hello의 공통점을 둘다 갖는다 -->
+</div>
+
+</div>
+</body>
+</html>

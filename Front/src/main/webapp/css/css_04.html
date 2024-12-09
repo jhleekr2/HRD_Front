@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	height: 100px;
+	font-size: 50px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>CSS 색상</h1>
+<hr>
+
+<!-- Color Name 표현법 -->
+<div style="background-color: gray;">테스트</div>
+
+<div style="background-color: red;">RED</div>
+<div style="background-color: green;">GREEN</div>
+<div style="background-color: lime;">LIME</div>
+<div style="background-color: blue;">BLUE</div>
+
+<hr>
+
+<!-- RGB 표현법 -->
+<div style="background-color: rgb(255,0,0);">RED</div>
+<div style="background-color: rgb(0%, 100%, 0%);">LIME</div>
+<div style="background-color: rgb(0, 0, 255);">BLUE</div>
+<!-- color name의 GREEN과 RGB의 GREEN은 차이가 있다. -->
+<!-- CSS에서는 rgb(0,255,0)에 해당하는 색깔을 LIME으로 정의하고 있다. -->
+<div style="background-color: rgb(255,255,0);">YELLOW</div>
+<div style="background-color: rgb(0,255,255);">CYAN</div>
+<div style="background-color: rgb(255,0,255);">MAGENTA</div>
+<!-- 컬러 잉크는 일반적으로 YELLOW의 소비량이 많다. -->
+<hr>
+
+<!-- RGBA 표현법 -->
+
+<div style="background-color: rgb(255,0,255, 1.0);">MAGENTA (deep)</div>
+<div style="background-color: rgb(255,0,255, 0.3);">MAGENTA (pale)</div>
+<div style="background-color: rgb(30%,0%,30%);">MAGENTA (30%)</div>
+<div style="background-color: rgb(70%,0%,70%);">MAGENTA (70%)</div>
+<hr>
+
+<!-- 16진수 표현법 -->
+<div style="background-color: #3366FF;">#3366FF</div>
+<div style="background-color: #36F;">#36F</div>
+<div style="background-color: #747F00;">#747F00</div>
+<div style="background-color: #747F0088;">#747F0088</div>
+<hr>
+
+<!-- HSL 표현법 -->
+
+<!-- 색상, Hue -->
+<p style="color: hsl(0, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(60, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(120, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(180, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(240, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(300, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(360, 100%, 50%);">안녕하세요</p>
+
+<hr>
+
+<!-- 채도, Saturation -->
+<p style="color: hsl(240, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(240, 50%, 50%);">안녕하세요</p>
+<p style="color: hsl(240, 0%, 50%);">안녕하세요</p>
+
+<hr>
+
+<!-- 명도, Lightness -->
+<p style="color: hsl(0, 100%, 0%);">안녕하세요</p>
+<p style="color: hsl(0, 100%, 25%);">안녕하세요</p>
+<p style="color: hsl(0, 100%, 50%);">안녕하세요</p>
+<p style="color: hsl(0, 100%, 75%);">안녕하세요</p>
+<p style="color: hsl(0, 100%, 100%);">안녕하세요</p>
+
+<hr>
+
+<div style="background-color: #000; color: #fff;">BLACK배경</div>
+<div style="background-color: #fff; color: #000;">WHITE배경</div>
+<!-- https://www.webdesignrankings.com/resources/lolcolors/의 인기많은 색깔 골라 개발해보자 -->
+<!-- 그러면 개발된 웹페이지의 색깔이 호평을 받을 것이다 -->
+</body>
+</html>

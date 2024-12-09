@@ -1,0 +1,20 @@
+ + name으로 적용할 값
+  - 아이디 : userid
+  - 비밀번호 : userpw
+  - 이메일 : email
+  - 성별 : gender (남-m, 여-f)
+  - 결혼여부 : married
+  - 지역
+	location
+	(서울, 경기, 전라, 경상)
+  - 하고싶은 말 : content
+
+ + type 속성
+  - 아이디 : text
+  - 비밀번호 : password
+  - 이메일 : email
+  - 성별 : radio
+  - 결혼여부 : checkbox
+  - 지역 : <datalist>를 이용해서 구현
+ + <textarea>태그
+  - 하고싶은 말
