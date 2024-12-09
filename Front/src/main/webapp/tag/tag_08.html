@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+/* style 태그 안쪽은 CSS문법 적용 -> CSS주석 */
+
+/*
+
+태그 {
+    적용하고 싶은 스타일
+}
+
+*/
+
+/* 이클립스는 버그로 style 태그 안쪽의 CSS문법을 잘 인식하지 못하는 버그가 있다 */
+/* table, th, td 태그에 같은 CSS스타일을 적용한다 */
+table, th, td {
+    /* 테두리를 적용한다 */
+    /* 1px : 선의 두께 */
+    /* solid : 선의 모양 - 실선 */
+    /* ccc : 선의 색상 - 회색 */
+
+    border: 1px solid #ccc;
+
+    /* 테이블 테두리가 겹쳐지는 부분에 대한 표현법 */
+    /* separate : 분리해서 표현(기본값) */
+    /* collapse : 합쳐서 한 줄로 표현 */
+/* border-collapse: separate; */
+    border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+
+<h1>테이블 태그</h1>
+<h3>caption, thead, tbody, tfoot</h3>
+<hr>
+
+<table>
+
+    <!-- 테이블 설명, 바깥쪽 상단에 고정된다 -->
+    <caption>전화번호부</caption>
+
+<!--  테이블의 머릿글, 최상단 행으로 고정된다 -->
+<thead>
+    <tr>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+    </tr>
+    </thead>
+    
+    <!-- 테이블의 본문, <thead>와 <tfoot> 사이에 위치한다 -->
+    <tbody> <!-- 원래는 tbody가 문법에 없었고, 지금도 많은 사람들이 tbody없이 개발하지만 -->
+    <!-- 표준이 tbody 쓰기 시작하면서 변질되었다.-->
+    <tr>
+        <td>Alice</td>
+        <td>서울시 강남구1</td>
+        <td>0101111111</td>
+    </tr>
+    <tr>
+        <td>Alice</td>
+        <td>서울시 강남구2</td>
+        <td>0102222222</td>
+    </tr>
+    <tr>
+        <td>Alice</td>
+        <td>서울시 강남구3</td>
+        <td>0103333333</td>
+    </tr>
+    </tbody>
+    
+    <!-- 테이블의 바닥글, 최하단 행으로 고정된다 -->
+    <tfoot>
+    <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>PHONE</th>
+    </tr>	
+    </tfoot>
+
+</table>
+</body>
+</html>

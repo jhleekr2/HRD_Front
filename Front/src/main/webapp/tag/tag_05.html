@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>하이퍼링크 태그</h1>
+<h3>a</h3>
+<hr>
+
+<!-- #top -->
+<div id="top"><h3>여기가 TOP 입니다!</h3></div>
+
+<a href="#bottom">bottom으로!</a>
+
+<hr>
+
+<!-- target="_self"가 기본값 -->
+<a href = "https://www.google.com/" target = "_self"> 구글로 이동</a><br><br>
+<a href = "/" target = "_self"> 구글로 이동</a><br><br>
+<!-- URL주소 생략하고 "/"만 적어놓으면 현재 페이지의 URL주소에서 생략된 부분을 끌어옴 -->
+<!-- 현재 페이지의 URL 주소 - http://localhost:8085/tag/tag_05.html -->
+<!-- "/" -> "http://localhost:8085/" 로 이동 -->
+
+<!-- 대부분 브라우저에서 새 탭에서 링크가 열리지만 새 창에서 열리기도 한다 -->
+<a href = "https://www.google.com/" target = "_blank"> 구글로 이동 (새 탭)</a>
+
+<hr>
+
+<ul>
+	<li><a href = "/tag/tag_01.html">하나</a></li>
+<!-- ** 현재 페이지 URL -->
+<!-- http://localhost:8085/tag/tag_05.html -->
+
+<!-- ** 적용한 상대 URL -->
+<!-- /tag/tag_01.html -->
+
+<!-- ** 이동할 실제 URL -->
+<!-- http://localhost:8085/tag/tag_01.html -->
+
+	<li><a href = "./tag_02.html">둘</a></li>
+<!-- ** 현재 페이지 URL -->
+<!-- http://localhost:8085/tag/tag_05.html -->
+
+<!-- ** 적용한 상대 URL -->
+<!-- ./tag_01.html -->
+<!-- -> . : URL 상의 현재 폴더를 의미 -->
+<!-- ** 이동할 실제 URL -->
+<!-- http://localhost:8085/tag/tag_02.html -->	
+
+	<li><a href = "tag_03.html">셋</a></li>
+<!-- ** 현재 페이지 URL -->
+<!-- http://localhost:8085/tag/tag_05.html -->
+
+<!-- ** 적용한 상대 URL -->
+<!-- tag_03.html -->
+<!-- ** 이동할 실제 URL -->
+<!-- http://localhost:8085/tag/tag_03.html -->	
+	
+	<li><a href = "../tag_04.html">넷</a></li>
+<!-- ** 현재 페이지 URL -->
+<!-- http://localhost:8085/tag/tag_05.html -->
+
+<!-- ** 적용한 상대 URL -->
+<!-- ../tag_03.html -->
+<!-- -> ../ : 폴더 계층을 하나 없애버림 -->
+
+<!-- ** 이동할 실제 URL -->
+<!-- http://localhost:8085/tag_04.html -->	
+	<li><a href = "/resources/img/Pepe.jpg">페페더 프로그</a></li>
+	<li><a href = "../resources/img/Pepe.jpg">페페더 프로그</a></li>
+<!-- 로컬 이미지 경로 = /workspace_web/Front/src/main/webapp/resources/img/Pepe.jpg -->
+<!-- 서버 배포 경로 = http://localhost:8085/resources/img/Pepe.jpg -->	
+<!-- ** 현재 페이지 URL -->
+<!-- http://localhost:8085/tag/tag_05.html -->
+
+<!-- ** 적용한 상대 URL -->
+<!-- /resources/img/Pepe.jpg -->
+<!-- ../resources/img/Pepe.jpg (더 좋은 방법) -->
+
+<!-- ** 이동할 실제 URL -->
+<!-- http://localhost:8085/resources/img/Pepe.jpg -->	
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non finibus odio, sit amet tempus felis. Sed vehicula, ipsum quis volutpat ornare, est ante elementum ipsum, non maximus enim lacus et mauris. Vivamus scelerisque molestie mi, et cursus eros fringilla ut. Integer venenatis imperdiet mi, dictum iaculis est scelerisque ut. Vivamus ullamcorper lectus eget posuere facilisis. Cras finibus porta dui, sit amet tincidunt arcu iaculis ut. Cras vitae tempor neque. Proin aliquet accumsan tincidunt. Cras ante magna, imperdiet ut vestibulum non, malesuada sed velit. Vestibulum non sapien id eros sodales efficitur. Etiam accumsan elementum volutpat.</p>
+
+<p>Quisque egestas risus ipsum, a commodo ex rutrum ac. Phasellus sit amet venenatis lectus. Maecenas nec placerat arcu. Sed id hendrerit nisl, sit amet ultricies elit. Vivamus magna lectus, volutpat ac sapien nec, eleifend varius augue. Duis feugiat nibh lacinia lacus sagittis, sed varius tellus lobortis. Pellentesque mauris est, aliquet quis urna vitae, faucibus maximus diam. Sed a commodo ante, convallis mollis mi. Cras quis nisl ut velit rhoncus consectetur. Nullam rutrum, magna sed semper volutpat, justo risus vulputate neque, eu posuere nibh nibh vel velit. Praesent lectus orci, vulputate vitae imperdiet vitae, vehicula ut velit.</p>
+
+<p>In hac habitasse platea dictumst. Cras imperdiet ut ipsum ornare fermentum. Morbi nec lectus ac metus aliquet ullamcorper at ac turpis. Aliquam erat volutpat. Vestibulum porta odio vel nunc faucibus porttitor. Maecenas vulputate nisl id erat blandit, sit amet ornare magna pulvinar. Vestibulum ut laoreet eros, vel pulvinar nunc. Fusce faucibus bibendum magna. Donec volutpat bibendum scelerisque. Aenean vitae auctor quam, non tincidunt tortor. Praesent faucibus bibendum odio, a ullamcorper lectus blandit in. Vivamus congue sapien in ligula eleifend pharetra.</p>
+
+<p>Aliquam erat volutpat. Proin ultrices urna sem, ultricies hendrerit urna posuere id. Duis tempus eleifend massa sit amet consectetur. Praesent risus diam, mollis in diam ac, venenatis mollis sapien. Nunc eget risus et elit lobortis pulvinar eget eu metus. Aenean eget sapien et purus lacinia consequat sit amet nec dolor. Quisque a varius mi. Ut ultricies odio tortor, ac dignissim tortor rhoncus in. Nunc sollicitudin lobortis turpis, sed eleifend purus sollicitudin eu. Vestibulum eros urna, auctor quis varius eget, tempus quis purus. Duis congue elementum nulla, non hendrerit dolor efficitur eget. Etiam molestie nibh in hendrerit gravida. Praesent turpis eros, sollicitudin ac egestas eu, ultrices vitae ante. Suspendisse nisi arcu, volutpat vel blandit ut, fermentum a velit.</p>
+
+<p>Vestibulum tincidunt malesuada leo ut euismod. Integer pulvinar ipsum non gravida varius. Vestibulum placerat aliquet erat. Fusce id ex placerat, porttitor lectus in, accumsan lectus. Nulla nunc nunc, semper non vehicula sit amet, rhoncus eget nulla. Ut orci metus, sollicitudin sed odio sed, pretium mattis neque. Donec ut nunc viverra, rutrum turpis et, pulvinar nunc. Vivamus neque lorem, laoreet et dui non, posuere volutpat ex. Cras dignissim blandit dui in egestas. Nunc sollicitudin accumsan metus, nec accumsan est convallis ut. In iaculis turpis in neque eleifend, ut molestie lectus lobortis.</p>
+
+<div id="bottom"><h3>여기가 BOTTOM입니다!</h3></div>
+<a href="#top">TOP으로!</a>
+
+<hr>
+
+<a href="">자기 자신 페이지</a>
+<a href="#">자기 자신 페이지</a>
+<!-- a href 속성에 아무것도 적지 않으면 현재 페이지를 다시 불러온다. -->
+<!-- 일반적으로는 현재 페이지를 다시 불러올 때 아무것도 안 쓰기보다는 #을 하나 쓰는 경우가 많다. -->
+</ul>
+
+</body>
+</html>

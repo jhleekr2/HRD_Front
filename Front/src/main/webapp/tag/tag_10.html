@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+table, th, td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+</style>
+
+</head>
+<body>
+
+<h1>테이블 태그</h1>
+<h3>colgroup, col</h3>
+<hr>
+
+<table>
+<!-- 같은 열에 공통 CSS 부여하기 -->
+<colgroup>
+    <col style="width: 100px;">
+
+    <!-- col태그에 span 속성으로 style이 적용될 열을 여러 개 선택할 수 있다 -->
+	<col span="2" style="background-color: cyan;">
+    <col>
+</colgroup>
+<tr>
+	<td>10</td>
+	<td>Apple</td>
+	<td>Alice</td>
+</tr>
+<tr>
+	<td>20</td>
+	<td>Banana</td>
+	<td>Bob</td>
+</tr>
+<tr>
+	<td>30</td>
+	<td>Cherry</td>
+	<td></td>
+
+</table>
+</body>
+</html>

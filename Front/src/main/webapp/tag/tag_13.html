@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>form태그</h1>
+<h3>datalist, select, textarea</h3>
+<hr>
+
+<form action="" method="get">
+	
+	<!-- 보이지 않는 <input>태그를 추가해 <input>태그가 엔터키로
+	SUBMIT하지 않도록 막을 수 있다 -->
+	<input type="text" style="display: none">
+	
+	<!-- <form>에 <input>태그가 단독으로 있으면 엔터키 입력으로
+	SUBMIT을 수행할 수 있다 -->
+	<input type="text" name="test">
+
+	<hr>
+
+	<!-- 화면에 보이지 않는다 -->
+	<!-- display: none; 스타일이 설정되어 있다 -->
+	<datalist id = "fruits">
+		<option>사과</option>
+		<option value="banana">바나나</option>
+		<option value="체리" />
+	</datalist>
+	
+	<!-- datalist의 option들을 자동 완성 목록으로 보여준다 -->
+	<input list = "fruits" name="fruit">
+
+	<hr>
+	
+	<label for="month"><!-- for는 id와 연결된다 -->
+	결재 :
+	</label>
+	
+	<select name="month" id="month">
+		<option>1개월</option>
+		<option value="two">2개월</option>
+		
+		<option value="three" selected="selected">3개월</option>
+		
+		<!-- select의 자식 option은 내용물을 꼭 작성해야 한다! -->
+<!-- 		<option value="three"></option> -->
+<!-- 		<option value="3개월" /> -->
+	</select>
+	<hr>
+	
+	<textarea rows="10" cols="40" placeholder="긴 글 작성"
+	id="content" name="content">기본 텍스트</textarea>
+	
+	<hr>
+	
+	<input type="hidden" name="hidden_data" value="숨긴데이터">
+	
+	<hr>
+	
+	<button>전송</button>
+	
+</form>
+</body>
+</html>

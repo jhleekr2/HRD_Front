@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+fieldset {/* block 요소 */
+	width: 270px;
+}
+
+label {/* inline 요소 (width가 적용되지 않는다) */
+
+	/* inline요소 -> inline-block요소 변경한다 */
+	/* width가 적용된다 */
+	display: inline-block;
+	
+	width: 80px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>form태그</h1>
+<h3>fieldset, legend</h3>
+<hr>
+
+<form action="" method="get">
+	
+	<fieldset>
+		<legend>사용자 정보</legend>
+		<label for="userid">아이디</label>
+		<input type="text" name="userid" id="userid"><br>
+	
+		<label for="userpw">패스워드</label>
+		<input type="text" name="userpw" id="userpw">
+	</fieldset>
+	
+	<fieldset>
+		<legend>취미</legend>
+		
+		<label><input type="checkbox" name="hobby" value="book">독서</label>
+		<label><input type="checkbox" name="hobby" value="movie">영화</label>
+		<label><input type="checkbox" name="hobby" value="music">음악</label>
+	</fieldset>
+	
+	<br>
+	<button>전송</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>form태그</h1>
+<h3>input 태그의 type속성</h3>
+<hr>
+
+<form action="" method="get">
+<label>
+아이디
+
+
+
+
+<input type="text" name="userid"
+ placeholder="아이디를 입력하세요"
+ size="10" value="Alice"
+ maxlength="7"
+ required="required"
+ autocomplete="on"
+ 
+ 
+ >
+ <!-- input size 옵션 대신 CSS로 크기조절하는 것이 일반적이다 -->
+</label>
+<hr><!-- 실제 웹페이지 디자인에서는 쓰는 것을 추천하지 않는다 -->
+
+<label for="upw">
+    패스워드
+</label>
+
+<input type="password" name="userpw" id="upw"
+ placeholder="비밀번호 입력!">
+
+<!-- ** id 속성, name 속성 -->
+
+<!-- ** id속성 -->
+<!-- 공용 속성(Global Attribute) -->
+<!-- HTML문서 안에서 고유한 식별값(이름)으로 사용된다 -->
+
+<!-- ** name속성 -->
+<!-- <form>와 <form> 자식 태그에 적용되는 속성 -->
+<!-- 요청 데이터 항목의 이름으로 사용된다 -->
+
+<!-- ** id속성과 name속성을 헷갈리지 않도록 주의하고, 실제 개발에서는 두개 이름을 똑같이 맞추는 경우가 많다 -->
+<hr>
+
+<label for="chk1">체크1</label>
+<input type="checkbox" id="chk1" name="chk" value="A">
+<label for="chk2">체크2</label>
+<input type="checkbox" id="chk2" name="chk" value="B" checked="checked">
+<label for="chk3">체크3</label>
+<input type="checkbox" id="chk3" name="chk" value="C" checked>
+
+<hr>
+
+<!--  체크된 항목값은 "on"을 기본적으로 전달한다. -> -->
+<!--  value 속성을 지정하면 지정한 값을 전달한다 -->
+
+<!--  체크(checked)하지 않고 submit 하면
+아예 요청 데이터 항목이 만들어지지 않는다 -->
+<!--  같은 그룹(주제)의 체크 항목들은 같은 name으로 지정한다 -->
+<!--  선택 값의 구분에는 value를 이용한다(서로 다르게 value 입력) -->
+
+<!-- 체크된 상태를 기본으로 설정하려면 checked속성을 부여한다 -->
+
+<hr>
+<!-- 선택 -->
+
+<!-- 체크 -->
+
+
+<label><input type="radio" name = "gender" value="m"> 남성
+</label>
+<label><input type="radio" name = "gender" value="f"> 여성
+</label>
+<label><input type="radio" name = "gender" value="o" checked> 선택 안함
+</label>
+
+<!-- ** radio는 checkbox와 비슷한 동작을 한다 -->
+<!-- ** checkbox는 중복 선택 허용 -->
+<!-- ** radio는 중복 허용하지 않고 1개만 독립 선택 -->
+<!-- ** 같은 name으로 설정된 radio들을 같은 라디오그룹(radio group)이라고 함 -->
+<!-- ** 라디오그룹 내에서 한 개 항목만 선택 가능 -->
+
+<hr>
+
+<!-- ** 일반 버튼 -->
+<!-- -> click을 감지하도록 만든다 -->
+<input type="button" value="버튼">
+<input type="button" value="알림창!"
+ onclick="alert('알림! 클릭 감지')"
+ ondblclick="alert('더블 클릭!')">
+
+<hr>
+<!-- SUBMIT 버튼 -->
+<!-- ** value 속성을 이용해서 기본 출력 문구인 "제출"을 변경할 수 있다 -->
+<!-- ** form태그의 목적에 따라 value를 적절히 변경해야 한다 -->
+<input type="submit" value="전송">
+
+<hr>
+<!-- RESET 버튼 -->
+<!-- 입력값 초기화 버튼 -->
+<!-- 페이지 새로고침없이 입력된 값들을 초기 상태로 되돌린다 -->
+
+<input type="reset">
+<hr>
+
+<!-- 버튼 태그 -->
+<!-- 일반 버튼이 아닌 SUBMIT버튼으로 만들어진다! -->
+<button>SUBMIT 버튼으로 만들어짐</button>
+
+<!-- type="button"을 적용해야 일반 버튼으로 만들어진다! -->
+<button type="button">일반 버튼으로 변경!</button>
+
+<!-- ** button태그의 type은 "button", "submit", "reset" 가능 -->
+
+<hr>
+<!-- 파일 선택창 -->
+<!-- 선택한 파일의 이름을 전송한다 -->
+<!-- 파일의 내용을 전달하지 않는다 -->
+<!-- 실제 파일을 서버로 보내려면 상당한 프로그램 설치 및 기술이 필요하다 -->
+<input type="file" name="f">
+
+<input type="file" name="f_multi" multiple="multiple">
+
+<hr>
+
+NUMBER
+<input type="number" name="n" min="10" max="55" step="5">
+<!-- 브라우저의 업데이트가 잘 안되서 오랫동안 도입되지 못하고 사장됐던 기술 -->
+<!-- IE가 사장되고 Choromium 방식으로 통일되면서 뒤늦게 브라우저에서 업데이트되어 -->
+<!-- 최근 조금씩 사용되기 시작했음 -->
+<!-- 과거에는 NUMBER기능을 개발자가 직접 개발해야 했는데 그 난이도가 매우 높았다 -->
+
+<hr>
+
+RANGE
+<input type="range" name="r" min="100" max="1000" step="100">
+<!-- 기본 범위 0~100 -->
+<!-- 기본 선택값 50 -->
+
+<hr>
+
+EMAIL
+<input type="email" name="e">
+<!-- "텍스트@텍스트" 형식을 검사한다 -->
+<!-- 너무 범용적으로 만들어서 정규성이 떨어져 사장됨 -->
+<!-- 실제로는 이메일 유효성 검증을 위해 정규식을 사용한다. -->
+<hr>
+
+URL
+<input type="url" name="u">
+<!-- "프로토콜://도메인" 형식 검사 -->
+
+<hr>
+
+<!-- Picker(피커) -->
+<!-- 이 부분은 사설 라이브러리가 많이 존재한다. -->
+<input type="date" name="d">
+<input type="time" name="t">
+<input type="color" name="c">
+
+
+</form>
+</body>
+</html>

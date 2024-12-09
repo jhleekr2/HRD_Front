@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+label {
+	display: inline-block;
+	width: 100px;
+}
+
+fieldset {
+	width: 285px;
+}/* 프론트엔드는 개발자도구에서 건들면서 적정한 크기 맞추자 */
+
+textarea {
+	width: 171px;
+	
+	vertical-align: middle;
+}
+/*
+div {/* 모든 div에 적용 */
+} */
+form div {/* form태그 안에 들어있는 div에 적용 */
+	margin-bottom: 5px;
+	
+	display: flex;/* flex에 관해서는 이 수업의 범위를 넘는다. 하지만, 주교재의 마지막 부분(p.425)에서 다룬다. */ 
+	align-items: center;
+}
+/* 개발자 도구에서는 보라색 빗금친 영역으로 표시된다 */
+/* flex를 잘 다루면 UI구축이 상당히 쉬워지지만, 난이도가 상당히 높다. */
+</style>
+
+</head>
+<body>
+<!-- 프론트엔드(특히 퍼블리싱과 CSS)는 디자인과 전공생들과 취업 경쟁 -->
+<!-- 백엔드는 국비 수강생들과 취업 경쟁 -->
+<!-- 컴퓨터공학과 전공생들은 국비와는 다른 곳에서 일해서 마주치기 어려움 -->
+<!-- 다만 입사하면 기초적인 프론트엔드 업무는 시킬것인데, 거부하지 말자. -->
+<!-- 되도록이면 div를 많이 씌워주는 편이 좋다. -->
+<div id="wrap">
+<div>
+	<h1>태그 퀴즈</h1>
+</div>
+
+<hr>
+
+<div>
+<form action="" method="get">
+
+	<fieldset>
+		<legend>인적사항</legend>
+		
+		
+		<div>
+			<label for="userid">아이디</label>
+			<input type="text" name="userid" id="userid" placeholder="아이디 입력">
+		</div>
+		<div>	
+			<label for="userpw">비밀번호</label>
+			<input type="password" name="userpw" id="userpw">
+		</div>
+		<div>	
+			<label for="email">이메일</label>
+			<input type="text" name="email" id="email">
+		</div>
+		<div>
+			<label for="gender">성별</label>
+			<label style="width: 50px;"><input type="radio" id="gender" name="gender" value="m"> 남</label>
+			<label style="width: 50px;"><input type="radio" id="gender" name="gender" value="f"> 여</label>
+		</div> <!-- 원래 있는 css설정을 이 부분에만 덮어씌웠음 -->
+		<div>
+			<label for="married">결혼여부</label>
+			<input type="checkbox" id="married" name="married" value="Y">
+		</div>
+		<div>
+			<datalist id = "location">
+				<option value="seoul">서울</option>
+				<option value="gyeonggi">경기</option>
+				<option value="jeolla">전라</option>
+				<option value="gyeongsang">경상</option>
+				</datalist>
+				<label for="location">지역</label>
+			<input list ="location" name="location">
+		</div>
+		<div>
+			<label for="content">하고싶은 말</label>
+			<textarea placeholder="입력하세요"
+			id="content" name="content"></textarea>
+		</div>
+		<div>
+			<button>제출</button><input type="reset" value="취소">
+		</div>
+	</fieldset>
+</form>
+</div>
+</div> <!-- #wrap div 끝 -->
+</body>
+</html>
