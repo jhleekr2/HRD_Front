@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+
+/* class속성의 값이 abc인 요소 */
+.abc {}
+
+/* class값이 "abc"로 완전 일치하는 요소 */
+/* .abc와 다르다 */
+[class="abc"] {}
+
+/* class값으로 "abc라는 단어를 포함하는 요소 */
+/* .abc와 같다 */
+[class~="abc"] {}
+
+/* -------------------------------------------------------- */
+
+/* title 속성을 가진 요소 */
+[title] {	color: red; }
+
+/* title 속성을 가진 div요소 */
+/* -> 선택 대상 없음 */
+div[title] {	border: 1px solid green; }
+
+/* class 속성을 가진 div요소 */
+div[class] {	border: 1px solid #808; }
+
+/* -------------------------------------------------------- */
+
+/* class값이 "te"로 시작하는 요소 */
+/* -> 선택 대상 없음 */
+
+h1[class^="te"] {	font-size: 100px; }
+
+/* class값이 "abc"로 시작하는 요소 */
+h1[class^="abc"] {	background: yellow; }
+
+/* -------------------------------------------------------- */
+/* class속성값이 "st"로 끝나는 요소 */
+h1[class$="st"] {	color : skyblue; }
+
+/* -------------------------------------------------------- */
+/* class속성값으로 "d"를 부분 포함하는 요소 */
+h1[class*="d"] {	text-decoration: line-through; }
+/* -------------------------------------------------------- */
+
+/* class속성값이 "abc"와 같거나 "abc-"로 시작하는 요소 */
+h1[class|="abc"] {	font-size: 60px; }
+</style>
+</head>
+<body>
+
+<h1>속성 선택자</h1>
+<hr>
+<h1 class="abc test dd">Hello</h1>
+
+<h1 class="st">안녕하세요</h1>
+
+<h1 class="abc-css" title="greeting message">반가워요!</h1>
+
+<div class>여기는 DIV!</div>
+</body>
+</html>

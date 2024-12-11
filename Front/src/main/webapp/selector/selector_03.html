@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+.blue {	color:blue; }
+.red {	color:red; }
+
+.border-gray {	border: 1px solid #ccc; }
+
+.size3 {	font-size: 3em; }
+
+.warnText {
+	font-size: 1.3em;
+	color: tomato;
+	border: 1px solid red;
+}
+
+/* -------------------------------------- */
+
+/* id선택자가 class선택자보다 적용 우선 순위가 높다 */
+/* id선택자가 브라우저 기본 스타일보다 적용 우선 순위가 높다 */
+
+#title {
+	color: tomato;
+	font-size: 1.3em;
+
+	font-style: italic;
+}
+
+</style>
+</head>
+<body>
+
+<h1 id="title" class="blue border-gray">CLASS 선택자</h1>
+<hr>
+
+<p class="blue">p 태그</p>
+<span class="size3 red">span 태그</span>
+<div class="red">
+	div태그
+	<p class="warnText">div태그 내 p태그</p>
+	안녕안녕안녕
+</div>
+</body>
+</html>

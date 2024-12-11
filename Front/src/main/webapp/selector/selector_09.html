@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+::first-line {
+	color: blue;
+}
+/* 실제 개발에는 그닥 유용하지 않다. */
+
+::first-letter {
+	color: red;
+	font-size: 20px;
+}
+
+/* ---------------------------------------------------- */
+
+.new::after {
+	content: "new";
+	
+	font-size: 10px;
+	background-color: #f66;
+	color: #fff;
+	
+	/* padding: 5px 2px; */ /* 왼쪽것은 상하 padding, 오른쪽 것은 좌우 padding */
+	
+	padding: 0 2px;
+	
+	/* padding-left: 2px; */
+	/* padding-right: 2px; */
+	
+	border: 1px solid black; /* border는 요소를 감싸는 직사각형 */
+	
+	border-radius: 3px; /* 테두리 모서리부분을 둥글게 깎아준다 */
+	/* 테두리를 안넣어도 적용 */
+}
+/* ---------------------------------------------------- */
+
+p:not(.new) {
+	background-color: #eee;
+}
+
+</style>
+</head>
+<body>
+
+<h1>가상 요소 선택자</h1>
+<hr>
+
+<p class="new">첫 번째(p)</p>
+
+<span>두 번째(span)</span>
+
+<div class="new">세 번째(div)</div>
+
+<p>네 번째(p). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus facilisis faucibus libero, vel eleifend est hendrerit in. Aenean ex felis, finibus et dictum in, condimentum rutrum neque. Donec bibendum dolor vel neque porta, et ullamcorper ipsum dapibus. Nam ultrices maximus felis, ut dictum magna rutrum at. Mauris vel nunc interdum, consectetur justo in, aliquet enim. Quisque congue mi sed tortor consectetur rhoncus. Aliquam erat volutpat. Suspendisse potenti. Cras euismod nunc a odio pretium, blandit posuere leo congue. Fusce ornare gravida elit, sed dapibus mauris commodo a. Sed tellus enim, aliquam non enim ac, imperdiet tincidunt neque. Suspendisse fringilla orci a lorem iaculis rhoncus. Praesent purus felis, rhoncus a arcu ac, imperdiet dictum magna. Vestibulum aliquam tellus a diam pellentesque, et congue mauris consectetur. Nulla a pellentesque elit.</p>
+</body>
+</html>

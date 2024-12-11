@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* h1태그의 곧바로 다음에 인접한 p태그 한 개를 선택 */
+h1 + p {
+	background: yellow;
+}
+
+/* --------------------------------------------- */
+
+/* h1태그를 뒤따르는 모든 p태그 형제 요소를 선택 */
+h1 ~ p {
+	border: 1px solid red;
+}
+
+/* div#content의 자손들 중에서 h1의 일반 형제인 p태그들 */
+div#content h1 ~ p {
+	text-decoration: underline;
+}
+
+/* --------------------------------------------- */
+
+/* h1태그의 인접 형제 .choco 선택 */
+/* -> 선택 대상 없음 */
+h1+.choco {	color: chocolate; }
+
+/* h1태그의 일반 형제 .choco 선택 */
+h1~.choco {	background: chocolate; }
+</style>
+</head>
+<body>
+
+<h1>복합 선택자</h1>
+<h3>인접 형제, 일반 형제</h3>
+<p>p태그 테스트</p>
+<hr>
+
+<div id="content">
+	<p>첫번째</p>
+	<h1>두번째</h1>
+	<p>세번째</p>
+	<p class="choco">네번째</p>
+	<p class="choco">다섯번째</p>
+	<h1>여섯번째</h1>
+	<p>일곱번째</p>
+	<p>여덟번째</p>
+</div>
+</body>
+</html>

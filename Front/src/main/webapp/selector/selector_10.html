@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+p {
+	color: red; /* color는 서로 싸움 */
+	background: yellow; /* background는 싸우지 않음 */
+}
+/* 가중치는 0 - 0 - 0 - 0 - 1 */
+/* 무조건 인라인이 우선적으로 반영 */
+
+#pId {
+	color: blue;
+}
+
+.pClass {
+	color: tomato !important; /* 가중치 1 - 0 - 0 - 1 - 0 */
+}
+</style>
+</head>
+<body>
+
+<p id="pId" class="pClass" style="color:orange;">텍스트텍스트</p>
+<!-- style=""으로 적은 것은 인라인 방식 -> 가중치는 0 - 1 - 0 - 0 - 0 -->
+</body>
+</html>
+    
