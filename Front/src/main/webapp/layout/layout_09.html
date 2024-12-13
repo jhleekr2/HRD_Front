@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border: 1px solid #ccc;
+
+	/* 내부 정렬 */
+	text-align: center;
+	
+	/* 외부 정렬 */
+	margin: 20px auto;
+	
+	width: 300px;
+	height: 250px;
+	/* 실제로는 min-width, min-height로 적용되고 있다. */
+	
+	padding: 5px;
+	
+	/* -------------------------------------------- */
+	
+	/* 데이터가 많은 셀을 넓게 적은 셀은 좁게(기본값) */
+/* 	table-layout: auto; */
+	
+	/* 셀들의 너비를 모두 균등하게 분배한다 */ 
+	table-layout: fixed;
+}
+/* display: table-row */
+tr {
+	/* 적용되지 않는다 */
+	width: 10000px;
+	margin: 20px;
+	padding: 30px;
+	border: 3px solid #ccc;
+	
+	/* 적용된다 */
+	/* 기본값은 자식 요소의 높이만큼 (auto) */
+	height: 100px;
+}
+
+/* display: table-cell; */
+th, td {
+
+	/* 적용된다 */
+	/* 부모 table의 width가 설정되어 있으면 더 작아질 수 없다. */
+	width: 100px;
+	
+	/* 적용된다 */
+	/* 부모 table의 height가 설정되어 있으면 더 작아질 수 없다. */
+	height: 110px;
+	
+	/* 적용된다, 부모 table도 같이 커진다 */
+	padding: 5px;
+	
+	/* 적용되지 않는다 */
+	margin: 10px;
+}
+/* table은 워낙 복잡해서, 그냥 테스트를 해보고 계산할 줄 알아야 한다. */
+/* block, inline의 특성은 외워둘 것! */
+
+th {
+	border: 1px solid #f99;
+}
+
+td {
+	border: 1px solid #99f;
+}
+
+</style>
+
+</head>
+<body>
+
+<table>
+<tr>
+	<th>하나</th>
+	<th>둘</th>
+	<th>셋</th>
+</tr>
+
+<tr>
+	<td>A</td>
+	<td>B</td>
+	<td>C</td>
+</tr>
+
+<tr>
+	<td>Apple</td>
+	<td>Banana</td>
+	<td>Cherry</td>
+</tr>
+</table>
+
+
+</body>
+</html>

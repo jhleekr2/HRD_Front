@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#content {
+	
+	width: 1360px;
+/* 	margin-left: auto; */
+/* 	margin-right: auto;	 */
+	margin: 0 auto;
+}
+
+#content div {
+	border: 3px solid #ccc;
+	
+	width: 300px;
+	height: 150px;
+	
+	float: left;
+	margin: 0 9px;
+	margin-top: 10px;
+	/* 가로 300px짜리 상자 4개가 가로 1300px공간에 들어가지 않는다.
+	이유는 (margin 10px + border 3px) X 2개 때문에 실제 가로 300px짜리
+	상자는 326px을 차지하고 326px X 4 = 1304px은 되어야 들어간다. 
+	이후 margin을 9px로 줄이고 padding을 설정한 후에는 1360px에서 들어
+	가는 것으로 확인되었다.*/
+	
+	padding: 0.5em; /* padding은 0.5em을 많이 추천한다. */
+}
+
+#content p {
+	margin: 0;
+}
+</style>
+</head>
+<body>
+
+<div id="content">
+	<div id="visible">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lectus vel massa convallis luctus. Nulla consequat sagittis dui. Maecenas porta sodales lectus sit amet dignissim. Integer tincidunt gravida porta. Nunc venenatis tincidunt dictum. Sed placerat sapien metus. Fusce tempus est nibh, non dapibus nulla mollis in. Vestibulum aliquam eleifend odio, at cursus leo tincidunt sit amet. Phasellus suscipit massa eget pellentesque tempor. Vestibulum lacinia, nunc nec consectetur vulputate, turpis arcu lobortis quam, sed hendrerit neque elit vel dolor. Quisque malesuada lectus vel ipsum dapibus, a rhoncus mi rutrum. Vestibulum mollis condimentum justo eu semper. Donec ut consectetur ligula. Integer lacinia purus quis mollis pretium.
+	</div>
+
+	<div id="hidden">
+	<p>Fusce ut sollicitudin libero. Morbi in sapien aliquet, rhoncus lectus tempor, aliquam quam. Proin non mauris non mi pellentesque fringilla. In vel lacus consequat, convallis sapien vel, euismod justo. Phasellus eget semper sapien. Vivamus imperdiet, tellus sit amet sollicitudin gravida, ligula nisi mollis risus, vitae egestas nisl est ut mauris. Praesent ac nulla id arcu dictum pellentesque. Ut feugiat vehicula dignissim. Ut tincidunt euismod nulla, sit amet sollicitudin ipsum feugiat ac. Phasellus sed luctus elit. Praesent mattis sapien vitae massa viverra, non aliquet metus accumsan. In lobortis odio vel blandit vestibulum. Ut id quam metus. Integer non nisi nec justo blandit malesuada.
+	</div>
+
+	<div id="scroll">
+	<p>Phasellus sed accumsan ligula, et bibendum ipsum. In ac egestas dui. Nullam vel lorem nibh. Vivamus sed bibendum risus. Morbi elementum bibendum ligula, eget commodo erat interdum sit amet. Ut gravida tempor dolor auctor placerat. Ut pretium egestas est, id elementum ipsum varius sed. Nunc semper, lacus sit amet tincidunt luctus, dolor justo facilisis nulla, ut porttitor lectus erat vulputate leo. In consectetur est vulputate mattis lacinia. Maecenas in diam tristique, rutrum massa vel, condimentum mi. Vivamus felis nisi, sodales sed dictum quis, eleifend quis ex. Phasellus dui mi, ultrices et cursus aliquam, egestas sit amet nisl. Mauris ac leo vulputate, ullamcorper metus sit amet, porttitor risus. Nullam vehicula velit ac lobortis ultrices.
+	</div>
+	
+	<div id="auto">
+	<p>Sed luctus at elit sollicitudin faucibus. Quisque sagittis porttitor suscipit. Vivamus volutpat neque eget quam interdum efficitur. Integer commodo lectus at erat convallis commodo. In diam sem, dignissim id porttitor nec, sodales nec diam. Mauris luctus ut nisi at pellentesque. Etiam porta, metus eget sollicitudin convallis, eros felis venenatis augue, a imperdiet ex sem sed libero. Aliquam tincidunt tortor eu neque euismod consectetur. Nullam sodales maximus nisl, at pharetra quam fermentum in. Sed non hendrerit lectus. In lobortis eu urna ut tempor. Morbi facilisis luctus magna, id commodo erat aliquet molestie. Fusce fermentum lorem est, in ultrices quam pulvinar a.
+	</div>
+</div>
+</body>
+</html>

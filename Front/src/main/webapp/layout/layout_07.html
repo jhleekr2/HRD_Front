@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+span {
+	
+/* 	border: 1px solid red; */
+/* 평소에 사용하기에는 별로 좋지 않은 방법이다. */
+/* 테두리의 왼쪽, 오른쪽이 잘려나갈 수 있다 */
+/* (자동) 줄바꿈이 발생할 수 있으며, 테두리도 줄바꿈된다 */
+	border-bottom: 1px solid red; /* 대신 이렇게 쓰는 것은 잘 어울린다 */
+	
+	background-color: #f99;
+	
+	/* inline은 width, height 적용 안됨 */
+	width: 10000px;
+	height: 10000px;
+	
+	/* 배경을 포함한 내부 영역이 넓어진다 */
+	/* 글자 기준선(baseline)을 벗어나지 않는다 */
+	padding: 5px;
+	
+	/* 상하 외부 여백이 없다 */
+	/* 좌우만 존재하고 마진 중첩이 없다 */
+	margin: 10px;
+	
+	/* 줄 간격, 줄 높이 */
+	/* 글자가 들어갈 영역의 높이 */
+	/* -> height, margin-top, bottom 등 높이의 효과를 낼 때 사용한다 */
+/* 	line-height: 2.5em; */
+	line-height: 1.85em; /* 영어는 1.75-1.85em, 한글은 1.65em을 권장한다. */
+	/* 기본 글자의 줄높이는 1.35em인데 읽기 불편할 정도로 좁다는 의견이 많다. */
+}
+</style>
+</head>
+<body>
+
+<div>
+	<span id="span1">SPAN1</span>
+	<span id="span2">SPAN2</span>
+	<span id="span3">SPAN3SPAN3SPAN3 SPAN3SPAN3SPAN3</span>
+	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lectus vel massa convallis luctus. Nulla consequat sagittis dui. Maecenas porta sodales lectus sit amet dignissim. Integer tincidunt gravida porta. Nunc venenatis tincidunt dictum. Sed placerat sapien metus. Fusce tempus est nibh, non dapibus nulla mollis in. Vestibulum aliquam eleifend odio, at cursus leo tincidunt sit amet. Phasellus suscipit massa eget pellentesque tempor. Vestibulum lacinia, nunc nec consectetur vulputate, turpis arcu lobortis quam, sed hendrerit neque elit vel dolor. Quisque malesuada lectus vel ipsum dapibus, a rhoncus mi rutrum. Vestibulum mollis condimentum justo eu semper. Donec ut consectetur ligula. Integer lacinia purus quis mollis pretium.</span>
+</div>
+</body>
+</html>

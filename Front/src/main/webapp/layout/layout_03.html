@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#myDiv div {	width: 200px; height: 100px; } /* 가중치 1 0 1 */
+
+#div1 { border: 1px solid red;}
+#div2 { border: 1px solid green;}
+#div3 { border: 1px solid blue;}
+
+#div1 { float: left; }/* div2와 div3이 서로 겹친다(overflow) */
+#div2 { float: right; } /* 이번에는 div3과 div1이 서로 겹친다(overflow) */
+
+/* #div3 { clear: left; } */
+/* #div3 { clear: both; } */
+
+.clearfix {
+	clear: both;
+	
+	width: 0 !important;
+	height: 0 !important;
+	
+	overflow: hidden; /* overflow되는 글자를 숨긴다. */
+} /* 가중치 0 1 0 -> 가중치를 높여야 한다. -> !important 사용*/
+
+</style>
+</head>
+<body>
+
+<h1>float속성 적용해보기</h1>
+<hr>
+
+<div id="myDiv">
+	<div id="div1">DIV1</div>
+	<div id="div2">DIV2</div>
+	
+	<div class="clearfix">안녕하세요! clear하는 div 입니다</div>
+	<!-- 기술적으로는 float를 끊기 위해서 clearfix div 를 하나 더 두고 만든다. -->
+	<!-- 원래는 clearfix div 안에 글자없이 비워둘수도 있겠지만, 개발자들은 만약의 -->
+	<!-- 상황을 대비하는 측면에서 글자를 적은다음 css overflow에서 hidden을 적용 -->
+	<!-- 하여 개발한다. -->
+	<div id="div3">DIV3</div>
+
+</div>
+</body>
+</html>

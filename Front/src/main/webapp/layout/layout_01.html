@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+    
+div {
+	background: #ccc;
+
+	/* 컨텐츠 영역의 너비, 높이 */
+	width: 100px;
+	height: 50px;
+	/* width, height의 크기 지정 옵션의 경우 직접 크기 지정, % 단위 지정, Auto 외에는 */
+	/* 잘 쓰이지 않는다 */
+
+	/* 내부 여백 */
+	padding: 20px;
+
+	/* 테두리 */
+/* 	border: 1px solid black; */
+/* 	border: 1px solid white; */
+/* 	border: 1px solid blue; */
+border-top: 1px solid blue;
+ 	border-right: 1px solid blue;
+ 	border-left: 1px solid blue;
+
+	/* 외부 여백 */
+/* 	margin: 10px; */
+
+/* 	box-sizing: content-box; */
+box-sizing: border-box;
+}
+
+div:last-child {
+	border-bottom: 1px solid blue;
+}
+	
+div:hover {
+	border-color: magenta;
+}
+</style>
+</head>
+<body>
+
+<h1>태그의 영역</h1>
+<h3>박스, box</h3>
+<hr>
+
+<div id="mydiv">
+	<div>하나</div>
+	<div>둘</div>
+	<div>셋</div>
+	<div>넷</div>
+	<div>다섯</div>
+</div>
+</body>
+</html>

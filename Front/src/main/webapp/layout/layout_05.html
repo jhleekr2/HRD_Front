@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+span { font-size: 2em;}
+
+#span1 {	background-color: red; }
+#span2 {	background-color: green; }
+#span3 {	background-color: blue; }
+
+#span1 {	float: left; }
+#span2 {	float: right; }
+
+div {
+	border: 1px solid #ccc;
+	
+	/* ------------------------------------------------------- */
+	
+	/* 블록 요소의 내부 컨텐츠를 정렬한다 */
+	/* 인라인 요소, 글자들을 정렬한다 */
+	
+	/* left, right, center, justify */
+	
+	text-align: center;
+	
+	/* ------------------------------------------------------- */
+	
+	/* 블록 요소의 너비 지정 */
+	/* 기본값 100% - 부모 요소의 너비만큼 */
+	/* 고정 크기로 지정하면 부모 요소 크기에서 남는 만큼을
+	자동 마진(auto margin)으로 설정한다 */
+	width: 900px;
+	
+	/* 블록 요소의 외부 정렬 */
+	/* 너비가 지정되며 생긴 자동 마진을 좌우로 균등하게 나눈다 */
+	/* 블록 요소의 컨텐츠 영역이 중앙으로 배치된다 */
+	margin: 0 auto;
+	
+	/* 1280 X 720 해상도 모니터를 쓸때 인터넷이 많이 발전되면서
+	1920 X 1080 해상도 이상으로 넘어온 지금도 1280 X 720 해상도
+	기준으로 웹페이지를 많이 개발하고 있다. */
+	
+	/* 따라서, 레이아웃을 잡을 때 보통 960~1100 정도로 width를 잡으면 좋다 */
+}
+
+</style>
+</head>
+<body>
+
+<div>
+	<span id="span1">SPAN1</span>
+	<span id="span2">SPAN2</span>
+	<span id="span3">SPAN3SPAN3SPAN3 SPAN3SPAN3SPAN3</span>
+
+</div>
+</body>
+</html>
