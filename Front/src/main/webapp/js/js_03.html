@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type ="text/javascript">
+
+//JS변수 선언
+//데이터 타입을 종류별로 명시하지 않는다
+//var키워드를 이용한다
+var n1;
+
+//JS변수값 대입
+n1 = 12345;
+n1 = 'Apple';
+n1 = true;
+
+console.log( n1 )
+
+console.log("------------")
+
+//선언과 동시에 초기화
+
+var n2 = 345.789;
+console.log("n2", n2);
+console.log("n2", typeof n2)
+
+console.log("------------")
+
+//Object
+var n3 = { a:1, b:2, 78:'Cherry' };
+console.log("n3", n3);
+
+console.log("n3.a", n3.a)
+console.log("n3.b", n3.b)
+
+//key가 숫자로 시작하거나
+//기호가 섞여있을 경우 .참조 연산할 수 없다
+//console.log( "n3.78", n3.78)
+
+//** 객체[key] -> value를 반환한다
+
+console.log( "n3[78]", n3[78] )
+
+console.log( "n3[\"78\"]", n3["78"] )
+
+console.log( "n3['78']", n3['78'] ) // 권장
+
+console.log( 'n3["78"]', n3["78"] ) // 권장
+
+console.log("------------")
+
+//Array 타입
+var arr = [];
+console.log( "arr", arr)
+
+arr = new Array();
+console.log( "arr", arr)
+
+arr = new Array(10);
+console.log( "arr", arr)
+
+arr = [5,6,7,8,9];
+console.log( "arr", arr)
+
+arr = new Array( 1, 2, 'ace', true);
+console.log("arr", arr)
+
+arr.push( 'test')
+arr.push('데이터 삽입')
+console.log("arr", arr)
+
+console.log( arr.pop())
+console.log( arr.pop())
+console.log( arr.pop())
+console.log("arr", arr)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

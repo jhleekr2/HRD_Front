@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var data;
+console.log( 'data', data)
+//자바에서는 실행 거부, 자바스크립트에서는 undefined 처리
+console.log( 'data', typeof data)
+//이때 자료형도 undefined로 나온다.
+
+// '~ is not defined' 에러가 발생한다 -> 변수선언 해주거나 코드를 삭제해야 해결!
+// console.log( num )
+
+var obj = null;
+console.log( 'obj', obj);
+console.log( 'obj', typeof obj);
+
+console.log("------------")
+
+if( data == undefined ) {
+	console.log("변수가 초기화되지 않음")
+	console.log("자료형조차 결정되지 않은 상태")
+}
+
+console.log("------------")
+
+if( obj == null ) {
+	console.log("참조 대상이 없는 상태")
+}
+
+console.log("------------")
+
+//** 추상 동등 비교 연산자
+// ==(Abstract Equality Comparison)
+if ( undefined == null ) {
+	console.log('undefined == null') // 출력 결과
+	console.log( undefined == null )
+} else if( undefined != null) {
+	console.log('undefined != null')
+}
+//Javascript는 서로 다른 자료형끼리를 비교하고, 그 결과는 규칙으로 정의되어 있다.
+//Javascript의 동등비교가 상당히 까다롭다.
+//그래서 Javascript는 서로 다른 동등연산자 ===를 새롭게 정의하여 문제를 해결하고 있다.
+console.log("------------")
+
+//** 엄격한 동등 비교 연산자
+// ===(Strict Equality Comparison)
+if ( undefined === null ) {
+	console.log('undefined === null') // 출력 결과
+	console.log( undefined === null )
+} else if( undefined !== null) {
+	console.log('undefined !== null')
+}
+
+console.log("------------")
+
+if( data ) { //undefined
+	console.log("undefined") //false와 같지는 않지만 false로 취급한다
+} else if (!data) {
+	console.log("!undefined")
+}
+
+console.log("------------")
+//논리형(조건식)으로 사용했을 때 false취급되는 대표 데이터
+
+console.log("!undefined", !undefined)
+console.log("!null", !null)
+
+console.log("!false", !false)
+console.log("!0", !0)
+console.log("!''", !'')
+
+console.log("!NaN", !NaN)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

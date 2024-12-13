@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+console.log( 50 ); //number
+console.log( '50' ); //string
+
+console.log("-----")
+
+console.log( 50 + '50') //number+string -> string
+console.log( '50' + 50) //string+number -> string
+//-> parseInt 등의 숫자변환 함수를 통해서 문자를 숫자로 미리 변환해서 계산해야
+//정확한 계산결과를 얻을 수 있다.
+
+console.log("-----")
+
+console.log( true + '111' )
+console.log( '222' + false )
+
+console.log("-----")
+
+console.log( true + 111) // 1 + 111 = 112
+console.log( 222 + false) // 222 + 0 = 222
+
+// *연산은 string타입을 대상으로 수행할 수 없다
+// string을 number로 변환해야 연산 가능하다
+
+console.log( "123" * 1) //내장함수 없이 parseInt 하는 편법
+
+console.log("-----")
+
+console.log( 1 + 2 + 3 )
+
+console.log( "" + 1 + 2 + 3 ) //숫자를 문자로 형변환할때 쓰는 방법(꽤 많이 쓰임!)
+//-> 숫자를 문자로 형변환하는 것이 의외로 귀찮고 실수가 많이 등장하기 때문
+console.log( String( 1 + 2 + 3) )
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

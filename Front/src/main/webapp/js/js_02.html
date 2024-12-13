@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//JS 데이터타입
+//--------------------------------------------
+
+//Number
+console.log(12345);
+console.log(123.45);
+
+console.log("-----------");
+
+//String
+console.log('Apple');
+console.log("Banana");
+
+console.log("-----------");
+
+//Boolean
+console.log(true);
+console.log(false);
+
+//Object 타입
+console.log( {} ); //빈 객체, Empty Object
+
+//객체(object)의 key는 String타입이다
+//객체(object)의 value는 JS의 모든 타입으로 적용 가능하다
+
+console.log( { "key":"value", "1":'Apple', b:2345, c:true});
+
+//key는 문자를 나타내는 "",''를 적용하지 않아도 문자로 인식한다
+
+console.log("-----------");
+
+//Array타입
+console.log( []); //빈 배열(Empty Array)
+console.log( [10, 20, 30, 40, 50])
+
+console.log( [true, 'a', 123, 4.5, {a:1,b:2}])
+// 자바스크립트의 배열은 자바 기준으로는 generic을 raw타입으로 준 list에 가깝다.
+console.log("-----------");
+
+//typeof 연산자
+// 데이터의 자료형을 반환하는 연산자
+
+// 사용법
+// typeof( 데이터 )
+// typeof 데이터
+
+console.log( typeof(123))
+
+console.log( 123 + " : " + typeof(123))
+
+console.log( 123, typeof(123) )
+
+//** console.log()를 이용하여 여러 데이터를 출력할 땐
+//,콤마로 데이터 항목을 구분하여 출력한다
+
+console.log("-----------");
+
+//** Array 타입은 JS 내부 문법으로 Object타입을 이용한다
+// -> typeof 연산의 결과로 object가 나온다
+
+console.log( {a:1, b:2},  typeof {a:1, b:2} )
+
+console.log( [true, 3],  typeof ([true, 3]) )
+// Javascript는 배열을 object의 특성을 응용한 것으로 간주한다.
+console.log("-----------");
+
+console.log( "abc", typeof "abc")
+console.log( 3.14, typeof 3.14)
+console.log( false, typeof false)
+
+console.log( NaN, typeof NaN)
+console.log( undefined, typeof undefined)
+console.log( null, typeof null) // null도 object 기반
+console.log( Infinity, typeof Infinity)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
