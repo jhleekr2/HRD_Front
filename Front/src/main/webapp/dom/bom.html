@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//window객체
+console.log( window );
+
+//전역 변수
+var data = 123;
+
+//전역 함수
+function func() {
+	console.log('test')
+}
+
+//-------------------------------------------------
+
+console.log("--- navigator ---");
+
+console.log( navigator );
+
+//브라우저 + 운영체제의 정보 속성
+console.log( navigator.userAgent );
+//요즘은 userAgent를 안따지게 되었지만, 예전에는 상당히 중요했던 항목
+// IE, Chrome, Firefox, Safari, Opera 라는 5개의 브라우저가 있었는데
+// 지금은 IE가 사장되고 Edge(Chrome계열)로 대체되었기 때문에
+// 이제는 사실상 Chrome만 대응하면 된다(가끔 Safari대응 필요할때는 있음)
+
+//언어권(Locale, 로케일) 정보
+console.log( navigator.language );
+
+//** Locale
+// 언어-국가
+// ko-kr
+// korean-korea
+
+//브라우저 벤더사, 배포 회사
+console.log( navigator.vendor );
+//2024년 deprecated됨 -> 지금은 Google Inc.로 나옴. 
+
+console.log('--- location ---');
+
+console.log('프로토콜', location.protocol);
+console.log('도메인', location.host);
+console.log('호스트네임', location.hostname);
+console.log('포트', location.port);
+console.log('자원의 경로', location.pathname);
+
+console.log('--- 전체 URL ---');
+console.log( location.href );
+
+//자바스크립트로 페이지 이동시키는 코드
+// -> <a>태그의 링크를 클릭한 것과 같은 효과
+// location.href = 'https://www.naver.com';
+// location.href = '/tag/tag_06.html';
+
+//-------------------------------------------------
+
+console.log('--- history ---');
+
+//이전 방문 페이지로 이동
+// history.back();
+// 브라우저에서 왼쪽 화살표(뒤로 가기)를 클릭한 것과 같은 효과
+
+//다음 방문 페이지로 이동
+// history.forward();
+
+//** history.go(n)
+// n은 정수, 이동할 페이지 수
+
+// 양수는 다음 페이지
+// 음수는 이전 페이지
+// 0은 현재 페이지
+
+// history.go(-1); // 이전 방문 페이지로 이동, 많이 쓰임.
+
+//-------------------------------------------------
+
+console.log('--- screen ---');
+
+//모니터 해상도
+console.log( screen.width );
+console.log( screen.height );
+console.log("-----");
+
+//브라우저를 최대화했을 때 해상도
+// -> 작업표시줄(시작메뉴줄) 높이 40px 제외
+console.log( screen.availWidth );
+console.log( screen.availHeight ); // availHeight는 height보다 40px 작게 나온다
+console.log("-----");
+
+console.log( window.outerWidth );
+console.log( window.outerHeight );
+
+console.log("-----");
+
+console.log( window.innerWidth );
+console.log( window.innerHeight );
+console.log("-----");
+
+console.log( window.screenX );
+console.log( window.screenY );
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//전역 변수
+var result;
+
+//덧셈 함수
+function add(n1, n2) {
+	result = n1 + n2;
+}
+
+//결과 출력 함수
+function print() {
+	console.log( "result", result );
+}
+
+//덧셈 수행
+add( 445,344 );
+
+//result = -12324;
+//중간에 함수 진행 상황을 깨버릴 수 있다.
+
+//출력
+print();
+//add와 print함수가 서로 구조적 연관성이 없는데도 연결되어 작동한다.
+//객체지향 프로그래밍 관점에선 좋지 않다.
+
+//---------------------------------------------------
+
+//콜백 함수(Callback Function)
+// 함수를 직접 호출해서 사용하지 않고
+// 외부의 동작(다른 요소의 실행)에 의해서 호출되도록 설정된 함수
+
+function sum( n1, n2, callback ) {
+	var res = n1 + n2;
+	
+	//결과값을 이용한 함수 호출
+	// -> 결과 처리
+	callback(res); // 함수 스코프에서 전달인자로 받은 것을 호출, res는 전달인자역할
+}
+
+res = 123123;
+
+function display1( data ) {
+	console.log("덧셈 결과", data);
+}
+
+sum( 111 , 222 , display1 )
+
+//---------------------------------------------------
+
+function display2( data ) {
+	alert("결과값 : " + data);
+}
+
+sum( 333,444,display2 );
+
+//---------------------------------------------------
+
+sum( 555,666,function(data) {
+	document.write("<h1>" + data + "</h1>");
+})
+
+sum( 777,888, data => {
+	document.write("<h1>" + data + "</h1>");
+})
+
+//** 콜백함수로 사용되는 함수를 호출할 때 매번 다르게 전달할 수 있다
+
+//** sum함수는 덧셈 기능을 가지고 있고
+// 콜백함수를 이용해서 출력 동작을 다양하게 선택(개발)할 수 있다.
+</script>
+</head>
+<body>
+
+</body>
+</html>

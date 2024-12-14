@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//함수 안에 함수를 중첩시켜 정의하기
+
+function func1() {
+	
+	function func2() {
+		
+		function func3() {
+			
+		}
+	}
+	
+	function func4() {
+		
+	}
+	
+}
+
+//--------------------------------------------------------------
+
+//전역 변수
+var num = 111;
+
+hello();
+
+//외부 함수 정의
+function hello() {
+	
+	//지역변수 num이 없으면 전역변수 num에 접근한다
+	//지역변수가 있으면 지역변수에 접근한다 (호이스팅 발생)
+	console.log(num);
+	//--------------------------------------------------------------
+	
+	//외부 함수의 지역 변수
+	var num = 222; // scope끼리 영향을 주도록 코드 작성하는것은 피해야 한다
+	//--------------------------------------------------------------
+	
+	//내부 함수 정의 - 정의 코드는 실행되지 않는다. -> undefined
+	function inner() {
+		
+		//내부 함수의 지역 변수
+		var num = 333;
+		console.log("내부 함수", num);
+		
+	}
+	
+	inner();//hello함수의 지역 scope에서 호출해야 함.
+}
+
+//외부 함수 호출
+hello();
+
+//내부 함수 호출
+// -> 에러, 함수가 정의된 스코프를 벗어나서 호출할 수 없다
+// inner();
+</script>
+</head>
+<body>
+
+</body>
+</html>

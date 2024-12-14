@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//함수, function
+
+//JS함수 정의
+function func() {
+
+    //수행코드
+    console.log("함수입니다");
+}
+
+//JS함수 호출
+func();
+func();
+func();
+
+//** 반환 데이터타입은 적지 않는다
+//** 반환코드(return코드)는 사용할 수 있다
+
+//----------------------------------------------------
+
+//변수 선언
+var func2;
+
+func2 = function() {
+    console.log('이것도 함수입니다');
+}
+
+func2();
+
+console.log( 'func2', typeof func2 );
+// function 자료형(참조형)을 가진다.
+console.log( func2 ); // 변수 안에 함수가 저장되어 있다.
+
+//----------------------------------------------------
+
+//JS함수 작성 방법 1.
+// function 함수이름(매개변수1, 매개변수2, ...) {
+// 	실행코드
+	
+// 	return 리턴값;
+// }
+
+// ** 매개변수, 리턴타입을 명시하지 않는다
+// ** var 키워드도 작성하지 않는다
+
+//----------------------------------------------------
+
+//JS함수 작성 방법 2.
+// var 변수명 = function( 매개변수리스트 ) {
+// 	실행코드
+	
+// 	return 리턴값;
+// }
+
+// ** 변수명이 함수의 이름이 된다
+// ** 함수의 이름을 지정하지 않고 정의하면
+// 익명함수(Anonymous Function)라고 한다
+
+// ** 익명함수는 변수에 저장하거나, 전달인자로 사용하거나,
+// 리턴값으로도 사용할 수 있다
+
+console.log("------------")
+
+var func3 = func;
+var func4 = func2;
+
+func3();
+func4();
+
+console.log("------------")
+
+console.log( func );
+console.log( func3 );
+
+console.log("------------")
+
+console.log( func2 );
+console.log( func4 );
+
+console.log("------------")
+
+console.log( typeof func );
+console.log( typeof func2 );
+console.log( typeof func3 );
+console.log( typeof func4 );
+</script>
+</head>
+<body>
+
+</body>
+</html>

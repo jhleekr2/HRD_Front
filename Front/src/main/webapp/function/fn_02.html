@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+//함수 정의
+function hello() {
+	console.log('hello');
+}
+
+//함수 이름을 변수에 저장하기
+var f = hello;
+
+//함수 호출
+f();
+
+console.log("----------------")
+
+var res = hello();
+//정의되어 있지 않은 hello()의 리턴값 저장 -> undefined
+
+//** undefined 출력
+// -> 반환값 없음
+// -> 함수의 반환값이 정의되지 않았음
+console.log( res )
+
+//반환되는 undefined를 이용하여
+//후처리가 가능해진다.
+if( !hello() ) {
+	console.log("반환값 없음")
+}
+
+console.log("-----------------")
+
+var func = function (data1, data2) {
+	
+	if( !data1 || !data2) {
+		
+	}
+	console.log( data1, data2 )
+	
+	return data1 + data2;
+}
+
+var result1 = func( 10, 20 );
+console.log("--- 숫자 덧셈 ---");
+console.log( result1 );
+
+var result2 = func( "Alice", 30);
+console.log("--- 문자열 연결 ---")
+console.log( result2 );
+
+console.log("-----------------")
+
+var result3 = func("Bob");
+console.log("--- 문자열 연결 ---")
+console.log( result3 );
+
+var result4 = func();
+console.log( result4 ); //NaN
+
+
+console.log("-----------------")
+
+//** 매개변수 개수보다 많은 전달인자는 무시된다
+
+var result5 = func(1,2,3,4,5,6);
+console.log("--- 덧셈 연산 ---");
+console.log( result5 );
+</script>
+</head>
+<body>
+
+</body>
+</html>
