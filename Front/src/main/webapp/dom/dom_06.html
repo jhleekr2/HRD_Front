@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	var content = document.getElementsByClassName("content");
+	console.log( content ); //배열.style (X)
+	
+	console.log( content[0] ); // DOMObj.style
+	
+	content[0].style.textDecoration = "underline";
+
+	//---------------------------------------------------------
+    	
+	var index3 = document.getElementsByClassName("index3");
+	console.log(index3);
+	//적용안됨, 배열에 style 속성 지정한 것
+// 	index3.style.fontStyle = "italic";
+	
+	index3[0].style.fontStyle = "italic";
+    
+    //---------------------------------------------------------
+	
+	var content7 = document.getElementsByClassName("content")[7];
+	
+	//"data-" 로 적용된 사용자 정의 속성을 .dataset 프로퍼티에 보관한다
+	//"data-" 접두어를 생략한 키 를 저장한다
+	// -> "index", "type"
+	console.log( content7.dataset );
+
+	console.log( content7.dataset.index ); // "data-index"의 속성값
+	console.log( content7.dataset.type ); // "data-type"의 속성값
+	
+	//---------------------------------------------------------
+	
+	// data-hello = "hihihi"; 속성 추가하기
+	content7.dataset.hello = "hihihi";
+}
+</script>
+</head>
+<body>
+
+<h1 class="content index1 text">첫번째</h1>
+<h1 class="content index2 number">222222</h1>
+<h1 class="content index3 text">세번째</h1>
+<h1 class="content index4 number">444444</h1>
+<!-- class에선 띄어쓰기 가능, id에서는 띄어쓰기 불가능 -->
+
+<hr>
+
+<!-- ** 사용자 정의 속성 -->
+<!-- HTML태그의 속성은 표준이 정해져 있다 -->
+<!-- 표준이 아닌 속성은 무시당한다 -->
+
+<!-- "data-"로 시작하는 속성 이름을 적용하면 표준 속성으로 인정한다 -->
+
+<h1 class="content" data-index="1" data-type="text">첫번째</h1>
+<h1 class="content" data-index="2" data-type="number">222222</h1>
+<h1 class="content" data-index="3" data-type="text">세번째</h1>
+<h1 class="content" data-index="4" data-type="number">444444</h1>
+<!-- 위의 코드와 달리 class의 부담을 덜어준 코드 -->
+
+</body>
+</html>

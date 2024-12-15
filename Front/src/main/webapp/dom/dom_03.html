@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	
+	//<img>태그 요소 노드 생성
+	var img = document.createElement("img");
+	console.log( img );
+	//----------------------------------------------
+	
+	//** <img>태그의 HTML 표준 속성
+	// src, alt, width, height, ...
+	// id, class, style, title, ...
+	
+	//** HTML 표준 속성(Attribute)들은 DOM객체의 속성(Property)으로
+	// 미리 등록되어 있다
+    	
+	img.src = "../resources/img/Pepe.jpg";
+	img.alt = "페페더 프로그";
+	
+	img.width = "600";
+	img.height = "400";
+    //여기까지 잘 들어가 있지만, body에 넣지 않았기에 아직은 안보인다
+	document.body.appendChild( img ); //body에 태그를 정식으로 넣음
+	//<body>태그에 img객체 추가
+	// -> 화면에 보임
+
+    //----------------------------------------------
+	
+	//비 표준 속성 적용하기
+	
+	//비표준 속성을 .참조 를 이용해서 적용할 수 없다
+	img.abcde = "123";
+	
+	//----------------------------------------------
+	
+	//DOM객체.setAttribute("속성명", "속성값");
+	//DOM객체.getAttribute("속성명");
+	// -> DOM객체 property에 대한 setter, getter
+	// -> 표준, 비표준 속성 모두 적용할 수 있다
+	// 비표준 속성 적용문제와, 표준속성이어도 특수문자같은 것들을 적용하는 문제가
+	//있어서 .참조 외에 getter, setter를 사용한다.
+	
+	//표준 속성 지정하기
+	img.setAttribute("style", "border: 1px solid #000");
+    	
+	//비표준 속성 지정하기
+	img.setAttribute("qwer", "123567");
+	
+	console.log("style", img.getAttribute("style"));
+	console.log("qwer", img.getAttribute("qwer"));
+	
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

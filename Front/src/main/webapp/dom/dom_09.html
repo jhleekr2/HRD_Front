@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	
+	//h1 태그 선택자
+	var h1 = document.querySelector("h1");
+	console.log(h1);
+	
+	//h1 태그 선택자
+	var h1s = document.querySelectorAll("h1");
+	console.log(h1s);
+	
+	//---------------------------------------------------------
+    	
+	//p태그 선택자
+	
+	var p = document.querySelector("p");
+	var ps = document.querySelectorAll("p");
+
+	console.log( p );
+	console.log( ps );
+	
+	//---------------------------------------------------------
+
+    console.log( document.querySelector("p.second"));
+	console.log( document.querySelector("p#test"));
+	
+	//---------------------------------------------------------
+
+	var test = document.querySelector("#test");
+	
+	//화면에서 사라짐
+// 	test.remove();
+	console.log( test );
+	
+	//---------------------------------------------------------
+
+	// <body>태그의 자식인 .second를 화면에서 제거한다
+	document.body.removeChild( document.querySelector(".second"));
+	
+}
+</script>
+</head>
+<body>
+
+<h1>선택자(Selector)를 이용한 DOM객체 얻기</h1>
+<!-- 선택자를 이용한 DOM객체 얻기 - 원래 jQuery라이브러리가 제공하던 기능 -->
+<hr>
+
+<p>첫번째</p>
+<p class="second">두번째</p>
+<span>세번째</span>
+<div>네번째</div>
+<p id="test">다섯번째</p>
+
+</body>
+</html>

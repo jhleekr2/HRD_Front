@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function func() {
+	console.log("div에 마우스 올라감");
+}
+
+function print() {
+	console.log("dblclick");
+	
+	result.innerHTML += '<h1>더블클릭</h1>';
+	
+}
+</script>
+</head>
+<body>
+
+<div onclick="alert('클릭됨')">하하하</div>
+
+<div onmouseover="func();">호호호</div>
+
+<button ondblclick="print();">버튼</button>
+
+<div id="result"></div>
+
+</body>
+</html>

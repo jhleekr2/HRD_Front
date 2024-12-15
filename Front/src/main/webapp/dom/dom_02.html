@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	
+	//<h1> 요소 노드를 생성한다 - <h1></h1>
+	var h1 = document.createElement("h1");
+	console.log(h1);
+
+    var text = document.createTextNode("Hello DOM");
+	console.log( text );
+
+	//----------------------------------------------
+	
+	//h1요소 노드의 자식으로 텍스트 노드를 추가한다
+	h1.appendChild( text );
+    
+    // <h1>Hello DOM</h1>
+	console.log( h1 );
+	
+	//----------------------------------------------
+    	
+	//** document.body
+	// <body> 노드에 대한 키워드
+	// document 객체의 body 프로퍼티
+	
+	//<body>노드의 자식으로 추가
+	//-> 화면에 보인다
+	document.body.appendChild( h1 );
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

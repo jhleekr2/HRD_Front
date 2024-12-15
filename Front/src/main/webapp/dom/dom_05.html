@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- div#content안에 innerHTML을 이용하여 추가하기 -->
+
+<!-- ul 목록 -->
+<!--    JavaScript -->
+<!--    DOM -->
+<!--    innerHTML -->
+
+<script type="text/javascript">
+window.onload = function() {
+	var content = document.getElementById("content");
+    
+    //--------------------------------------------------------
+	//** 잘못된 풀이 방식
+	// -> 첫 <ul>태그를 생성할 때 </ul>을 브라우저가 자동으로 추가한다
+	// -> <li>태그들이 <ul>의 자식으로 포함되지 않는다
+	content.innerHTML = "<ul>ul 목록"
+	content.innerHTML += "<li>Javascript</li>";
+	content.innerHTML += "<li>DOM</li>";
+	content.innerHTML += "<li>innerHTML</li>";
+	content.innerHTML += "</ul>"
+	// 이렇게 풀면 틀린다. li가 ul의 자식으로 들어가지 못한다.
+	// 이유? 브라우저가 ul이 열려있는 것을 발견하고는 ul을 닫아버렸기 때문.
+
+    content.innerHTML = "<ul>ul 목록"
+	+ "<li>Javascript</li>"
+	+ "<li>DOM</li>"
+	+ "<li>innerHTML</li>"
+	+ "</ul>";
+	//<ul>과 <li>의 구조가 다 만들어진 후에 넣기 때문에 정답.
+	//그러나, 코드가 보기 좋지 않다는게 단점이다.
+	
+	//--------------------------------------------------------
+    	
+	var html = "";
+	
+	html += "<ul>";
+	html += "	<li>Javascript</li>";
+	html += "	<li>DOM</li>";
+	html += "	<li>innerHTML</li>";
+	html += "</ul>";
+	//먼저 코드 완성 후에 대입한다.
+	content.innerHTML = html;
+    
+    //--------------------------------------------------------
+
+	content.innerHTML = "<ul id='myUl'></ul>";
+	
+	var myUl = document.getElementById("myUl");
+	myUl.innerHTML = "<li>Javascript</li>";
+	myUl.innerHTML += "<li>DOM</li>";
+	myUl.innerHTML += "<li>innerHTML</li>";
+}
+</script>
+</head>
+<body>
+
+<div id="content">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+
+	//모든 id속성값들은 window객체의 property로 등록된다
+	console.log( window.myForm )
+
+	//window.생략 가능
+	console.log( myForm )
+
+	//#test 객체
+	console.log( test )
+
+	//** document.getElementById("id값");을 대신해서 사용한다
+
+	//--------------------------------------------------------------
+
+	// form태그의 자식들은 <form>객체의 property로
+	//name속성값으로 등록된다
+
+	console.log( myForm.data1 );
+	console.log( myForm.data2 );
+
+	//--------------------------------------------------------------
+
+	//form태그의 name속성값은 document객체의 property로 등록된다
+
+	console.log( document.myFormName );
+	console.log( document.myFormName.btn );
+
+	//--------------------------------------------------------------
+
+	// DOM객체의 HTML표준 속성들이 property로 등록된다
+
+	document.myFormName.data1.value = 'TEST';
+
+	console.log( document.myFormName.data2.value );
+
+	//--------------------------------------------------------------
+
+	//input에 적용된 value 변경
+	myForm.data2.value = "HIHIHIHI";
+	console.log( myForm.data2.value );
+
+	//HTML코드로 지정된 최초 기본값
+	console.log(myForm.data2.defaultValue );
+
+	//--------------------------------------------------------------
+
+	//체크된 상태 - false
+	console.log( myForm.chk.checked )
+
+	//체크박스의 value - on
+	console.log( myForm.chk.value )
+
+	//--------------------------------------------------------------
+
+	//비활성 상태 확인 - true
+	console.log( myForm.btn.disabled );
+
+	//활성 상태로 설정하기
+	myForm.btn.disabled = false;
+
+	//--------------------------------------------------------------
+
+	//선택된 항목(<option>)의 value값을 반환한다
+	console.log( myForm.sel.value )
+
+	//항목을 선택할 때 value를 사용한다
+	myForm.sel.value = 'two';
+
+	//--------------------------------------------------------------
+
+	//HTML속성과는 상관없이 보여지는 내용을 value속성으로 관리한다
+
+	console.log( myForm.area.value );
+	myForm.area.value = "긴 글 텍스트";
+
+	// .innerHTML 을 이용하여 보여지는 텍스트를 지정할 수 있지만
+	// .value가 최종 반영되므로 value
+	myForm.area.innerHTML = "innerHTML 테스트";
+
+	//--------------------------------------------------------------
+
+	//<form>태그의 입력값 초기화
+	// <input type="reset"> 버튼의 동작
+	myForm.reset();
+
+	//--------------------------------------------------------------
+
+	//<form>태그의 입력값 전송
+	// <input type="submit"> 버튼의 등작
+	// myForm.submit();
+
+	//--------------------------------------------------------------
+
+	if( myForm.chk.checked ) {
+		myForm.submit();
+	} else {
+		alert("이용 약관에 모두 동의하세요");
+	}
+}
+</script>
+</head>
+<body>
+
+<h1 id="test">form 테스트</h1>
+<h3>DOM API 축약 코드</h3>
+<hr>
+
+<form action="" method="get" id="myForm" name="myFormName">
+
+	<input type="text" name="data1"><br>
+	<input type="text" name="data2" value="기본값"><br><br>
+
+	<input type="checkbox" name="chk">
+	<input type="button" name="btn" disabled="disabled"><br><br>
+
+	<select name="sel">
+		<option value="one">1</option>
+		<option value="two">2</option>
+	</select>
+	<br><br>
+
+	<textarea name="area">기본 텍스트</textarea>
+</form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+console.log( document );
+console.log("-------------");
+
+// ** DOM API 함수
+// document 객체에 정의되어 있는 DOM관련 함수
+// 주로 HTML, 요소들을 관리한다
+//-----------------------------------------------
+
+// document.getElementById(id) : DOMObject
+// -> id 속성값을 가진 요소를 DOM객체로 반환한다
+
+// ex) document.getElementById("header1");
+
+</script>
+
+<script type="text/javascript">
+    //script 태그를 중간에 나누어도 된다
+    
+    //** 잘못된 DOM API 사용
+    
+    //브라우저는 HTML문서를 전부 해석해야 DOM트리가 완성된다
+    //DOM API는 DOM트리를 기준으로 동작한다
+    
+    //DOM트리가 완성되기 전에 document 객체의 DOM API를 사용하면 안 된다
+    console.log( document.getElementById("header1") ); //null
+    
+</script>
+
+<script type="text/javascript">
+    //** DOM API를 사용하는 방법 1
+    
+    //load 이벤트
+    //-> 메모리에 데이터가 불러와졌을 때 발생
+    //onload 이벤트 처리(Handle)
+    //-> load가 발생하면 처리할 기능(코드)
+    
+    //** window객체의 load이벤트 처리
+    //-> DOM Tree가 완성되면 window객체에 load이벤트가 발생한다
+    
+    window.onload = function() {
+        console.log("--- onload ---");
+        
+        var h2 = document.getElementById("header2");
+        console.log(h2);
+    }
+</script>
+
+<script type="text/javascript">
+    //** DOM API를 사용하는 방법 3
+    
+    function changeBgYellow() {
+        console.log('changeBgYellow call')
+        var h = document.getElementById("header2");
+        h.style.backgroundColor ="yellow";
+    }
+    
+    function changeBgNone() {
+        console.log('changeBgNone call');
+        
+        var h = document.getElementById("header2");
+        h.style.background = "none";
+    }
+</script>
+</head>
+<body>
+
+<h1 id="header1"
+ onmouseover="console.log('over');"
+ onmouseout="console.log('out');">HEADER TEXT</h1>
+
+<h1 id="header2"
+ onmouseenter="changeBgYellow();"
+ onmouseleave="changeBgNone();">헤더 텍스트</h1>
+ <script type="text/javascript">
+    //script태그는 body끝나기 직전에 넣어도 인식한다.
+    
+    //이 시점에서도 onload이벤트 발생하진 않음
+    //아직 미완성 시점이지만, 우리가 필요한 DOM트리는 거의 완성된 시점
+    
+    //** DOM API를 사용하는 방법 2
+    
+    console.log("--- </body> 전 ---");
+    
+    var h1 = document.getElementById("header1");
+    console.log(h1);
+</script>
+</body>
+</html>

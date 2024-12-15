@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	
+	var data1 = document.getElementsByName("data1");
+	console.log( data1 );
+	console.log( data1[0] );
+	
+	var data2 = document.getElementsByName("data2")[0];
+	console.log( data2 );
+	
+	//--------------------------------------------------------
+	
+	data2.value= "두번째 입력 폼 필드"
+
+	//--------------------------------------------------------
+
+	var hobbies = document.getElementsByName("hobby");
+	console.log( hobbies );
+	
+	hobbies[0].checked = "checked"; //HTML방식
+	hobbies[1].checked = true; //Javascript방식
+	
+	console.log(hobbies[0].checked);
+	console.log(hobbies[1].checked);
+	// JS쪽 객체 다루는 것
+
+	console.log(hobbies[0].getAttribute("checked") );
+	console.log(hobbies[1].getAttribute("checked") );
+	// HTML쪽 Attribute 다루는 것
+	
+	//둘이 서로 만나기 때문에 같은 것으로 취급되지만, 종종 다르게 취급될 수 있으므로 주의!
+	
+}
+</script>
+</head>
+<body>
+
+<h1>name 속성</h1>
+
+<form action="" method="get">
+
+	<input type="text" name="data1"><br>
+	<input type="text" name="data2"><br><br>
+	
+	<label>영화보기 <input type="checkbox" name="hobby" value="movie"></label><br>
+	<label>음악감상 <input type="checkbox" name="hobby" value="music"></label>
+
+
+
+</form>
+
+</body>
+</html>

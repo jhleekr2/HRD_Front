@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	//마우스가 요소에 들어갔을 때 발생하는 이벤트
+	// mouseenter, mouseover
+	//--------------------------------------------------------
+	
+	myDiv.onmouseenter = function() {
+		console.log('mouseenter');
+	}
+
+	myDiv.onmouseover = function() {
+		console.log('mouseover');
+	}
+
+	//--------------------------------------------------------
+
+	//** mouseover, mouseout
+	// 자식 요소들을 각각의 영역으로 생각한다
+	// 부모 테두리, 자식들의 테두리 영역을 경계로 판단한다
+	// 각 경계를 넘을 때마다 이벤트 발생
+	
+	//** mouseenter, mouseleave
+	// 자식 요소들을 각각의 영역으로 생각하지 않는다
+	// 외부 요소 경계선을 넘을 때 딱 한번만 이벤트 발생
+}
+</script>
+</head>
+<body>
+
+<div id="myDiv" style="border: 1px solid #ccc;">
+	<button>하하</button>
+	호호
+</div>
+</body>
+</html>

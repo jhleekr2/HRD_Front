@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+    //이벤트 처리 코드 등록하기
+// 	DOM객체.addEventListener("이벤트명", 콜백함수);
+	
+	//이벤트 처리 코드 해제하기
+// 	DOM객체.removeEventListener("이벤트명", 콜백함수);
+
+	//---------------------------------------------------------
+	
+	btnOk.addEventListener("click", function() {
+		alert("확인버튼 클릭됨");
+	});
+
+    //** 이벤트 리스너가 해제되지 않는다
+	//위쪽의 function() 함수와 아래쪽의 function() 함수는
+	//서로 같은 함수가 아닌 별개의 함수이기 때문에 발생한 현상
+	btnOk.removeEventListener("click", function() {
+		alert("확인버튼 클릭됨");
+	});
+
+    //---------------------------------------------------------
+	
+	btnOk.addEventListener("click", clickFunc);
+	
+	btnTest.addEventListener("click", function() {
+		btnOk.removeEventListener("click", clickFunc);
+	});
+
+	//---------------------------------------------------------
+
+    // 별도의 함수를 정의하여 이벤트 리스너를 연결한다
+	
+	//1. #btnTest에 마우스를 올리면 글자색을 빨강으로 변경
+	btnTest.onmouseenter = colorRed;
+	
+	//2. #btnTest에 마우스를 내리면 글자색을 검정으로 변경
+	btnTest.onmouseleave = colorBlack;
+	
+// 	btnTest.addEventListener("onmouseover", onmouseover());
+// 	btnTest.removeEventListener("onblur", onmouseover());
+// 	btnTest.addEventListener("onblur", onmouseblur());
+	
+	//---------------------------------------------------------
+
+// 	console.log( 'color', !btnTest.style.color );
+
+	btnOk.addEventListener("mouseenter", colorTomato);
+	btnOk.addEventListener("mouseleave", colorTomato);
+
+}
+
+let colorTomato = e => { e.target.style.color = e.target.style.color ? '' : 'tomato';}
+
+// function colorTomato() {
+// 	console.log('colorTomato');
+	
+// 	this.style.color = this.style.color ? '' : 'tomato';
+	
+// 	//	if( this.style.color == '' ) {
+// 	if( !this.style.color ) {
+// 		//글자색을 적용한 적이 없을 때 실행
+// 		this.style.color = 'tomato';
+// 	} else {
+// 		//글자색을 적용한 적이 있을 때 실행
+// 		this.style.color = '';
+// 	}
+	
+// }
+
+function clickFunc() {
+	alert("확인 버튼이 클릭되었습니다!");
+}
+
+function colorRed() {
+	console.log('colorRed');
+	btnTest.style.color = 'red';
+	//여기서는 다음과 같이 코드 써도 된다
+// 	this.style.color = 'red';
+}
+
+function colorBlack() {
+	console.log('colorBlack');
+	btnTest.style.color = 'black';
+// 	btnTest.style.color = '';
+	//속성 제거도 잘 생각해보자
+}
+</script>
+</head>
+<body>
+
+<button id="btnOk">확인</button>
+
+<button id="btnTest" class="hi hello test">테스트</button>
+    
+</body>
+</html>

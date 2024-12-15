@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#n1, #n2 {
+	width: 80px;
+}
+
+#correct, #incorrect {
+	width: 100px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function() {
+	
+	//n1, n2 입력 불가 설정
+	n1.readOnly = true; // input 설정에셔 readonly="readonly" 한것과 같다.
+	n2.readOnly = true;
+	//-----------------------------------------------
+
+	//구구단 첫 초기화
+    init();
+	//프로그래밍 할때 최대한 많이 객체지향적으로 모듈화해보는 습관을 기르자!
+	
+	//결과 확인 버튼 클릭 이벤트
+	calc.onclick = play;
+	
+	//정답 입력칸에서 키 입력 이벤트
+	answer.onkeydown = function() {
+		console.log( event );
+		
+		//엔터 키 감지하기
+		if( event.keyCode == 13 ) {
+			play();
+		}
+	}
+	//위 코드를 화살표 함수형태로 변환하면
+// 	answer.onkeydown = e => e.keycode==13 ? play() : undefined;
+}
+
+//구구단 퀴즈 실행 함수
+function play() {
+	console.log('calc click')
+	
+	//사용자가 정답 숫자를 입력하지 않았을 때
+// 	if( answer.value == '' ) {
+	if( !answer.value ) {
+		alert('문제의 답을 입력하세요');
+		
+		//문제 초기화 및 포커스 다시 위치(꼼수를 막기 위함)
+		init();
+		
+		return;
+	}
+	
+	//정답/오답 판단
+	if( n1.value * n2.value == answer.value ) {
+		alert("정답입니다!");
+		
+		//정답 횟수 증가
+		correct.value++;
+	} else {
+		alert("오답입니다!");
+		
+		//오답 횟수 증가
+		incorrect.value++;
+	}
+	
+	//구구단 초기화
+	init();
+}
+
+//구구단 숫자 설정
+function init() {
+	n1.value = randomNum(2,8);
+	n2.value = randomNum(1,9);
+	
+	//정답 입력칸 지우기
+	answer.value = '';
+	
+	//정답 입력칸에 포커스 주기
+	answer.focus();
+}
+	//2~9
+// 	randomNum(2,8);
+	
+	//1~9
+// 	randomNum(1,9);
+	
+// start부터 count개수의 연속된 정수들 중 랜덤 반환	
+function randomNum( start, count) {
+	return Math.floor( Math.random() * count ) + start;
+}
+
+</script>
+</head>
+<body>
+<!-- Math.random() 함수 이용하여 숫자 2개 생성하기 -->
+<!-- 사용자의 입력 받기 -->
+<!-- "결과 확인"버튼을 눌렀을 때 정답/오답 판단 결과 적용 -->
+<!-- ** 태그 내용 수정해도 괜찮음 -->
+
+<h1>구구단 퀴즈</h1>
+<hr>
+
+<input type="text" id="n1"> x <input type="text" id="n2"><br><br>
+= <input type="text" id="answer">
+
+<hr>
+
+<input type="button" id="calc" value="결과 확인"><br><br>
+
+정답 횟수 : <input type="text" id="correct" value="0"><br>
+오답 횟수 : <input type="text" id="incorrect" value="0">
+
+<a id="test" href="/tag/tag_01.html">aaa</a>
+
+<script>
+// 기본 동작을 막는 자바스크립트 함수
+test.onclick = function( e ) {
+	e.preventDefault();
+}
+</script>
+</body>
+</html>

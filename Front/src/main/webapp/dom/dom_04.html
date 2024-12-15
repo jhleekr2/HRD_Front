@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	var content = document.getElementById("content");
+	console.log( content );
+	
+	//--------------------------------------------------
+
+    //** DOM객체.innerHTML 속성(property)
+	// -> HTML 태그 형식을 유지하며 자식 요소를 다룬다
+	console.log( content.innerHTML );
+
+	content.innerHTML = "<h3>innerHTML</h3>";
+	// 태그가 적용된다
+	content.innerHTML += "<p>테스트</p>";
+	content.innerHTML += "<hr>";
+	content.innerHTML += "단순 텍스트";
+
+    console.log("--- innerHTML ---");
+	console.log( content.innerHTML );
+	
+	console.log("--- innerText ---");
+	console.log( content.innerText );
+
+    //--------------------------------------------------
+
+	//** DOM객체.innerText 속성(property)
+	// -> HTML 태그 형식을 무시하며 자식 요소를 다룬다
+	content.innerText = "<h1>innerText</h1>";
+	content.innerText += "<hr>";
+	content.innerText += "<h3>Hello</h3>";
+	
+// 	console.log("--- innerText ---");
+// 	console.log( content.innerText );
+}
+</script>
+</head>
+<body>
+
+<div id="content">
+CONTENT
+</div>
+</body>
+</html>
