@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+ 	
+	var $div = $("div");
+	
+	console.log( "width", $div.css("width" ) ) //width 하나만 쓰면 getter역할
+	//width와 함께 값을 추가로 써주면 setter역할
+	console.log( "height", $div.css("height") )
+	//jQuery에서는 !important를 적용할수도 없고 확인할수도 없다
+	console.log( "border", $div.css("border") )
+	
+	//!important를 포함한 속성값은 jQuery .css() 함수로 관리할 수 없다
+	$div.css("width", "400px !important");
+	$div.css("height", "300px");
+	
+	//---------------------------------------------------------------------   
+	
+	//PlainObject 타입
+	// -> 순수한 형태의 JS Object 타입을 부르는 용어
+	// -> 배열, 내장 객체 등등을 제외한 것
+	
+	// -> key:value쌍으로 데이터만을 저장한 형태
+	// 자바의 HashMap과 비슷
+	var obj = {}; //empty object
+	
+	var obj = {
+			'key': 'value'
+			, key2: 1234
+			, key3: true
+	};
+	
+	console.log( obj );
+
+	//---------------------------------------------------------------------
+
+	var cssObj = {
+			'width': '500px'
+			, 'height': '400px'
+			, 'border-color': 'blue'
+	};
+	
+// 	div.css({
+// 			'width': '500px'
+// 			, 'height': '400px'
+// 			, 'border-color': 'blue'
+// 	});
+	
+	$div.css( cssObj );
+
+	//---------------------------------------------------------------------
+
+	var info = $div.css( ['width', 'border-style'] );
+	
+	//PlainObject 로 지정된 스타일 속성의 값을 보여준다
+	console.log( info );
+});
+</script>
+</head>
+<body>
+
+<div style="width: 300px; height: 200px !important; border: 1px solid #ccc;">
+	<p>하나</p>
+	<p>둘</p>
+	<p>셋</p>
+	
+</div>	
+</body>
+</html>

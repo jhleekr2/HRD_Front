@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	$("#postcodeWrap").css({
+// 		left: (innerWidth / 2 ) - (500 / 2),
+// 			top: (innerHeight / 2 ) - (500 / 2)
+			
+			left: (outerWidth / 2 ) - (500 / 2),
+			top: (outerHeight / 2 ) - 400
+	})
+	
+	//버튼 클릭
+	$("#btnPostcode").click(function() {
+// 		console.log("#btnPostcode click");	
+		//-------------------------------------------------------
+		
+		//입력창 초기화
+		$("#postcode").val("");
+		$("#address").val("");
+		$("#address_detail").val("");
+		
+		//-------------------------------------------------------
+		new daum.Postcode({
+			
+			oncomplete: function(data) {
+				
+				//우편번호
+				console.log( data.zonecode );
+				
+				$("#postcode").val( data.zonecode );
+				
+				//-------------------------------------------------------
+				
+				//주소
+				console.log( data.roadAddress ); //도로명
+				console.log( data.jibunAddress ); //지번
+				
+				console.log( data.userSelectedType ); //사용자의 선택 (R/J)
+				
+				//사용자의 선택에 따른 주소 입력
+				if( data.userSelectedType == 'R') { //도로명 선택
+					$("#address").val( data.roadAddress );
+				} else if( data.userSelectedType == 'J') { //지번 선택
+					$("#address").val( data.jibunAddress );
+				}
+				
+				//-------------------------------------------------------
+				
+				//상세 주소 입력 포커스
+				$("#address_detail").focus();
+				
+				//-------------------------------------------------------
+				
+				//우편번호 검색 화면 감추기
+				$("#postcodeWrap").hide();
+			}
+// 		}).open({});
+		}).embed( postcodeWrap );
+		//-------------------------------------------------------
+		
+		//우편번호 div 보여주기
+		$("#postcodeWrap").css("display", "block");
+		$("#postcodeWrap").show();
+	})
+	
+	$("#postcodeWrap .closeIcon").click(function() {
+// 		$("#postcodeWrap").hide();
+		$(this).parent().hide();
+	})
+})
+</script>
+
+<style type="text/css">
+#postcodeWrap {
+/*	position: relative; */
+	position: absolute;
+	
+	width: 500px;
+	height: 500px;
+	
+	border: 1px solod #ccc;
+	
+	display: none;
+}
+
+#postcodeWrap .closeIcon {
+	position: absolute;
+	
+	width: 30px;
+	
+	z-index: 9999;
+	
+	top: 5px;
+	right: -42px;
+	
+	border: 1px solid skyblue;
+	padding: 3px;
+	
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<button id="btnPostcode">우편번호 찾기</button>
+<hr>
+
+<div id="postcodeWrap">
+	<img alt = "X" src="../resources/img/close.png" class="closeIcon">
+</div>
+
+<input type="text" id="postcode" placeholder="우편번호" readonly="readonly"><br>
+
+<input type="text" id="address" placeholder="주소" readonly="readonly"><br>
+
+<input type="text" id="address_detail" placeholder="상세주소">
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- https://postcode.map.daum.net/guide -->
+<!-- 카카오 우편번호서비스 API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+new daum.Postcode({
+	
+	oncomplete: function(data) {
+		
+		//우편번호 항목을 클릭했을 때 전달되는 값
+		console.log( data );
+		
+	}
+	, width: 500 //팝업창의 너비
+	, height: 600 //팝업창의 높이
+
+
+}).open({
+	q: '순환로',
+	left: (window.screen.width / 2) - (500 / 2),
+	top: (window.screen.height / 2) - (600 / 2)
+});
+
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

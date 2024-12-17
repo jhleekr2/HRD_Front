@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!--  jQuery 3.7.1 -->
+<script type="text/javascript" src="../resources/js/jquery-3.7.1.js"></script>
+
+<!-- jQuery UI JS -->
+<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
+ integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM="
+  crossorigin="anonymous"></script>
+  
+<!-- jQuery UI Base Theme CSS -->
+<link type="text/css" rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.min.css">
+
+<script type="text/javascript">
+$(function() {
+    	
+	//#myDialog 객체를 다이얼로그로 만들고 화면에 띄우기
+// 	$("#myDialog").dialog();
+	
+	//---------------------------------------------------------------
+	
+	$("#btnDialog").click(function() {
+		//#myDialog 객체를 다이얼로그로 만들고 화면에 띄우기
+// 	 	$("#myDialog").dialog();
+		
+		if( !$("#myDialog").dialog( "isOpen" ) ) {
+			// 다이얼로그 창 보여지게 만들기 (열기)
+			$("#myDialog").dialog( "open" );
+			
+		} else {
+		// 다이얼로그 창 닫기
+		$("#myDialog").dialog( "close" );
+		}
+	})
+
+    	//---------------------------------------------------------------
+	
+	// .dialog() 함수의 전달인자로 PlainObject 형태의 설정값을 지정한다
+	$("#myDialog").dialog({
+		autoOpen: false //자동 Open(열기)
+		
+		, modal: true //모달 설정(뒷배경 상호작용 금지)
+		, width: 400
+		, height: 400
+		
+// 		, title: "Options 테스트"
+
+		, draggable: false
+		
+		, buttons: [
+			{
+				text: "버튼1",
+				icon: "ui-icon-arrowthickstop-1-n",
+				iconPosition: "top",
+			},
+			{
+				text: "버튼2",
+				icon: "ui-icon-gear",
+				click: function() {
+					$("#myDialog").css("color", "red");
+				}
+			},
+			{
+				text: "닫기",
+				click: function() {
+					$("#myDialog").dialog( "close" );
+					//alert띄워서 경고하기보다는 alert를 dialog로 대체하는 것이 좋다
+					//실제 사이트에서 alert 남발하면 촌스럽다는 인상을 받는다
+				}
+			}
+		]
+	});
+	
+});
+//https://api.jqueryui.com/ 에서 jqueryui의 API 기술문서를 볼 수 있다
+
+//평소에 다양한 API들을 직접 기술문서보고 발굴해서 이용해보고 포트폴리오에 녹여보자
+//고통스런 시간이겠지만, 다양한 API 이용은 회사생활에 크게 도움될 것이다.
+</script>
+</head>
+<body>
+<div id="myDialog" style="display: none;" title="HIHIHI">
+	<p>안녕하세요!</p>
+	<p>다이얼로그 테스트</p>
+</div>
+
+<button id="btnDialog">다이얼로그!</button>
+
+</body>
+</html>

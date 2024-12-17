@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resources/js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+$(function() {
+    
+    //파일 선택 창에서 파일을 선택했을 때
+	$("#upload").change(function() {
+		console.log("#upload change");
+		//------------------------------------------------------------------
+		
+		//사용자가 선택한 파일(File 객체)
+		var selectedFile = this.files[0];
+		console.log(selectedFile);
+		
+		if( !selectedFile.type.includes( "image" ) ) {
+			alert("이미지가 아닙니다!");
+			
+			//선택 파일 초기화
+			this.value =""
+			
+			//이벤트 처리 중단
+			return;
+		}
+		
+		//--------------------------------------------------------
+		
+		//FileReader 객체 생성
+		var reader = new FileReader();
+		
+		console.log( reader );
+	
+		//--------------------------------------------------------
+		
+		//선택한 파일을 텍스트(Text) 형식으로 입력받기
+// 		reader.readAsText( selectedFile );
+		
+		//선택한 파일을 DataURL 형식으로 입력받기 - 바이너리 형식을 유지
+		// 이진수를 유지하면서 아스키 코드로 대응되는 것으로 바꿨다
+		// 그런데, URL형식으로도 쓸수 있다
+		reader.readAsDataURL( selectedFile );
+		//--------------------------------------------------------
+		
+		//읽어들인 파일의 내용 출력하기
+		// -> 잘못 사용함
+		// -> FileReader가 파일을 다 읽기 전(불러들이기 전)에 실행된다
+		// -> null 출력된다
+// 		console.log( reader.result );
+		//--------------------------------------------------------
+		
+		//파일을 전부 입력했을 때 발생하는 load이벤트 처리
+		reader.onload = function() {
+			console.log( reader.result );
+			
+			//#preview 자식 태그 지우기
+			$("#preview").html('');
+			
+			//선택한 이미지를 <img>태그로 채워 #preview에 넣기
+			$("<img>")
+			.attr("src", reader.result)
+			.attr("width", 300)
+			.attr("height", 300)
+			.appendTo( $("#preview") );
+		}
+		
+	})
+
+});
+</script>
+</head>
+<body>
+
+<h1>FileReader 객체를 이용한 이미지 미리보기</h1>
+<hr>
+
+<input type="file" id="upload">
+
+<div id="preview"></div>
+
+</body>
+</html>

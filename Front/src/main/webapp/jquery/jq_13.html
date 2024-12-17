@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function () {
+	
+	var $chk1 = $("input[type='checkbox']").eq(0);
+	var $chk2 = $("input[type='checkbox']").eq(1);
+	
+	console.log( $chk1 );
+	console.log( $chk2 );
+	
+	console.log("--------------");
+	
+	console.log( $chk1.attr("checked") ) //HTML Attribute
+	console.log( $chk1.prop("checked") ) //JS DOM Property
+	
+	// -> checked같은 속성값을 JS로 다룰때는 boolean처리 가능하다
+	
+	// -> jQuery로는 .prop()을 사용해야 한다
+	
+	console.log("--------------");
+	
+	//HTML Attribute로 false를 지정할 수 없어서 checked 속성이 사라진다
+	// -> 결과적으로 체크박스가 해제된다
+	$chk1.attr("checked", false);
+
+	//DOM 객체의 checked 속성(property)을 false로 설정한다
+	// -> 체크박스가 해제된다
+	$chk2.prop("checked", false); // 이쪽이 더 바람직한 코드
+	
+	//** .attr()로 false를 지정한 건 잘못된 설정이지만 결과 화면에서는 체크 해제된다.
+});
+</script>
+</head>
+<body>
+
+<label>확인1 <input type="checkbox" checked="checked"></label>
+<label>확인2 <input type="checkbox" checked="checked"></label>
+
+</body>
+</html>

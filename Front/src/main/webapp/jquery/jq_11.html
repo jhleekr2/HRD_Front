@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+    	
+	//div태그에 st4 클래스 항목 추가하기
+	$("div").addClass("st4");
+    	
+	//div태그에 st2 클래스 항목 제거하기
+	$("div").removeClass("st2");
+    	
+	//div태그에 모든 클래스 항목 제거하기
+	$("div").removeClass();
+
+    //---------------------------------------------------
+	
+	//jqDOM객체.css() -> 인라인 방식으로 CSS 적용하기
+	
+	//CSS를 임베디드 방식으로 관리하기
+	$("p").addClass( 'red' );
+	
+	$("p").eq(0).addClass( 'blue' );
+	
+	$("p").eq(1).removeClass( 'red' );
+	
+	//---------------------------------------------------
+    	
+	//div 태그 클릭 이벤트
+	$("div").click(function() {
+		
+		//"red"클래스 항목을 토글한다
+		$("p").eq(2).toggleClass('red');
+	});
+	//---------------------------------------------------
+    	
+	//HTML 표준 속성 설정하기
+	$("div").attr("id", "myDiv");
+	
+	//HTML 표준 비표준 속성 설정하기
+	$("div").attr("abcde", "12345");
+	
+	//** .attr() 함수는 표준, 비표준 속성을 따지지 않고 적용할 수 있다
+	
+	//---------------------------------------------------
+	
+	$("p").eq(0).attr("background", "orange");
+	
+	$("p").eq(1).css("background", "tomato");
+	
+	$("p").eq(2).attr("style", "background: magenta;");
+	
+});
+</script>
+
+<style type="text/css">
+.red{ color:red;}
+.blue{ color:blue;}
+</style>
+</head>
+<body>
+
+<div class="st1 st2 st3"
+	style="width: 300px; height: 200px !important; border: 1px solid #ccc;">
+	<p>하나</p>
+	<p>둘</p>
+	<p>셋</p>
+</div>
+	
+</body>
+</html>

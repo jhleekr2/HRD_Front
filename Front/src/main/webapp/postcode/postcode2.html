@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	//버튼 클릭
+	$("#btnPostcode").click(function() {
+// 		console.log("#btnPostcode click");
+		//---------------------------------------------------------
+	
+		//입력창 초기화
+		$("#postcode").val("");
+		$("#address").val("");
+		$("#address_detail").val("");
+		
+		//---------------------------------------------------------
+		new daum.Postcode({
+			
+			oncomplete: function(data) {
+				
+				//우편번호
+// 				console.log( data.zonecode);
+				
+				$("#postcode").val( data.zonecode );
+				
+				//---------------------------------------------------------
+				
+				//주소
+				console.log( data.roadAddress ); //도로명
+				console.log( data.jibunAddress ); //지번
+				
+				console.log( data.userSelectedType ); //사용자의 선택(R/J)
+				
+				//사용자의 선택에 따른 주소 입력
+				if( data.userSelectedType == 'R' ) { //도로명 선택
+					$("#address").val( data.roadAddress );
+				} else if ( data.userSelectedType =='J' ) { //지번 선택
+					$("#address").val( data.jibunAddress );
+				}
+				
+				//---------------------------------------------------------
+
+				//상세 주소 입력 포커스
+				$("#address_detail").focus();
+			}
+		
+		}).open({});
+	})
+	
+})
+</script>
+</head>
+<body>
+
+<button id="btnPostcode">우편번호 찾기</button>
+<hr>
+
+<input type="text" id="postcode" placeholder="우편번호" readonly="readonly"><br>
+
+<input type="text" id="address" placeholder="주소" readonly="readonly"><br>
+
+<input type="text" id="address_detail" placeholder="상세주소">
+</body>
+</html>

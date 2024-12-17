@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	
+	$("form").submit(function() {
+		console.log("--- submit ---");
+		//--------------------------------------------------------------------
+		
+		//callback 함수를 중단한다
+		// -> submit 이벤트는 그대로 수행된다
+// 		return;
+		
+		//submit 이벤트를 중단한다
+// 		return false;
+		//--------------------------------------------------------------------
+		
+		//아이디가 입력됐는지 검증(Validation)
+		if( !$("#uid").val() ) {
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		//--------------------------------------------------------------------
+		
+		// 아이디 : 4~12글자, 영문자, 숫자만 가능
+		// 단, 첫 글자는 숫자가 올 수 없음
+// 		var idReg = /^\D[a-zA-z0-9]{4,12}/; // 나의 풀이법
+		var idReg = /^[a-zA-Z][a-zA-z0-9]{3,11}$/; // 강사의 옳은 풀이
+		if( !idReg.test( $("#uid").val() ) ) {
+			alert("아이디는 4~12글자, 영문자 숫자만 가능합니다(첫글자 숫자 불가)");
+			
+			return false;
+		}
+		//--------------------------------------------------------------------
+		// 평가 난이도는 이정도로 출제된다
+		
+		// 패스워드 : 영문자, 숫자, 특수 기호를 포함한 8자 이상
+		var pwReg = /^[a-zA-Z0-9!@#$%&*-_=]{8,}$/;
+		if( !pwReg.test( $("#upw").val() ) ) {
+			alert("패스워드는 영문자, 숫자, 특수기호를 이용하여 8자 이상으로 작성하세요")
+		
+			return false;
+		}
+		//--------------------------------------------------------------------
+		
+		if( $("#upw").val() != $("#upw_chk").val() ) {
+			alert("비밀번호 입력이 일치하지 않습니다");
+			
+			return false;
+		}
+		
+	})
+	
+	//--------------------------------------------------------------------
+	
+	//자기소개 버튼 클릭하면 textarea보이도록 만들기
+	$("#btnComment").click(function() {
+		console.log("--- btnComment click ---");
+		
+		//요소 보여지게 설정하기
+		$("#comment").show();
+		
+		//요소 안 보이게 설정하기
+		$("#comment").hide();
+		
+		//숨기기, 보여지기 토글
+		$("#comment").toggle();
+		
+	})
+});
+</script>
+</head>
+<body>
+
+<form action="" method="get">
+
+<div>
+<label for="uid">아이디</label>
+<input type="text" id="uid" name="uid">
+</div>
+
+<div>
+<label for="upw">패스워드</label>
+<input type="password" id="upw" name="upw">
+</div>
+
+<div>
+<!-- 클라이언트가 패스워드 확인이 안되기 때문에 패스워드를 올바로 입력했는지 -->
+<!-- 검증하기 위해 패스워드 확인창을 넣어놓음 -->
+<!-- 이때 패스워드 확인창은 실제 서버로 내용전송을 하지 않도록 해야해서 -->
+<!-- name은 쓰지 않는다 -->
+<label for="upw_chk">패스워드 확인</label>
+<input type="password" id="upw_chk">
+</div>
+
+<div>
+<button type="button" id="btnComment">자기소개</button><br>
+<textarea id="comment" style="display: none;" name="comment"></textarea>
+</div>
+
+<button>회원 가입</button>
+
+</form>
+</body>
+</html>
