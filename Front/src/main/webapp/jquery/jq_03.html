@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- CDN은 외워서 쓰는 것이 아니라 배포 사이트에 직접 가서 확인해보고 써야 한다 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() { //window.onload = function() {}
+
+    //선택자에 대한 노드 요소를 찾아 jQuery DOM 객체로 반환한다.
+    //jQuery DOM 객체와 JS DOM Object를 잘 구분해야 한다!
+    //코드만 봐서는 구분이 어렵고, 개발자 도구를 이용하면 쉽게 구분할 수 있다.
+    $("CSS Selector"); // document.querySelector, document.querySelectorAll()를 합쳐놓은것과 같음
+
+    //----------------------------------------------------------------------------
+
+    //#p1 노드를 찾아 jQuery DOM객체로 저장한다
+    var jQueryP1 = $("#p1");
+
+    console.log("--- jQueryP1 ---");
+    console.log(jQueryP1);
+
+    console.log("--- jsP1 ---");
+    console.log(p1);
+    console.log(jQueryP1[0]); //javascript DOM, p1과 같다
+	//jQuery DOM = js DOM객체를 한번 포장해서 감싼 형태
+
+	//----------------------------------------------------------------------------
+
+    //순수 JS DOM객체를 이용한 스타일 지정
+	p1.style.color = 'red';
+
+    //에러, jQuery DOM 객체에 순수 JS DOM API를 적용할 수 없다
+	// jQueryP1.style.background = "#ccc";
+
+	//jQuery DOM객체에 jQuery DOM API를 이용한 스타일 적용
+	jQueryP1.css("border", "1px solid #ccc");
+	//----------------------------------------------------------------------------
+    
+	//Javascript와 jQuery를 동시에 익히기가 상당히 힘들다. 한쪽을 익히면 다른 한쪽을 잊어버리는 일이 반복되므로
+	//회사에 따라서는 보안이슈때문에 jQuery를 비롯한 외부 라이브러리의 사용을 완전히 금지하는 곳도 있다.
+	//프로젝트와 생산성 측면에서는 개인차가 있지만 일반적으로는 jQuery가 좀더 우위에 있다.
+	
+	console.log("--- $('p') ---");
+	console.log( $('p'));
+	
+	// .css() 함수는 선택된 요소가 여러 개여도 모두 스타일을 적용한다
+	$('p').css("font-style", "italic");
+
+	//----------------------------------------------------------------------------
+
+	//JS DOM 객체
+	var p3 = document.getElementById("p3");
+
+	//jQuery DOM 객체
+	var $p3 = $("#p3");
+
+	//----------------------------------------------------------------------------
+
+	//JS DOM 객체
+	var p2 = document.getElementsByClassName("p2")[0];
+
+	//JS DOM 객체 -> jQuery DOM 객체 변환
+	var $p2 = $( p2 );
+
+	//----------------------------------------------------------------------------
+
+	//JS API를 이용하여 글자색 tomato
+	p2.style.color = "tomato";
+
+	//jQuery API를 이용하여 배경색 #ccc
+	// $p2.css("속성명", "속성값");
+
+	$p2.css('background-color', '#ccc');
+	
+});
+</script>
+</head>
+<body>
+
+<div>
+	<p id="p1">하이</p>
+	<p class="p2">Hello</p>
+	<p id="p3">Welcome</p>
+</div>
+
+</body>
+</html>
