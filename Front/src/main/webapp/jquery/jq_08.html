@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	
+	//#myDiv의 마지막 자식으로 추가한다
+	$("#myDiv").append( $("<h3>").html("APPEND") );
+	
+	//#myDiv의 첫번째 자식으로 추가한다
+	$("#myDiv").prepend( $("<h3>").html("PREPEND") );
+	
+	//------------------------------------------------------------------------
+	
+	//#third의 다음 형제로 추가한다
+	$("#third").after( $("<li>").html("NEW") );
+
+	//#third의 이전 형제로 추가한다
+	$("#third").before( $("<li>").html("OTHER") );
+	
+	//------------------------------------------------------------------------
+
+	$("<h1>").html("처음").prependTo( $("#myDiv") )
+	$("<h1>").html("마지막").appendTo( $("#myDiv") )
+
+	//------------------------------------------------------------------------
+
+	$("<p>").html("이전 형제").insertBefore( $("#myDiv") );
+	$("<p>").html("다음 형제").insertAfter( $("#myDiv") );
+	
+	//jQuery의 장점 - 왔다갔다 순회하면서 요소 추가가 쉽다.
+	//기존 JS대비 확실한 jQuery의 장점.
+	
+});
+</script>
+</head>
+<body>
+
+<div id="myDiv">
+
+<ul>
+	<li>하나</li>
+	<li>둘</li>
+	<li id="third">셋</li>
+	<li>넷</li>
+	<li>다섯</li>
+</ul>
+
+</div>
+
+</body>
+</html>

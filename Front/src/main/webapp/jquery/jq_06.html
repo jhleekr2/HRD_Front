@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	console.log("-- div > * --"); //선택자를 div의 자식의 전부
+	console.log( $("div").children() );
+	//결과값 ul
+	
+	console.log("-- div > * > * --"); //선택자를 div의 자식의 자식의 전부
+	console.log( $("div").children().children() );
+	//결과값 li 5개
+	
+	console.log("-- div > * > #third --"); //선택자를 div의 자식중에서 #third
+	console.log( $("div").children().children("#third") );
+	//최종적으로 객체 하나만 반환
+	
+	//---------------------------------------------------------------
+
+    console.log("-- #here --"); //#선택자 -> id 선택자
+	console.log( $("#here") );
+	
+	console.log("-- #here의 부모노드 --");
+	//순수 JS나 CSS선택자에는 없는기능, jquery에서만 제공되는 기능
+	console.log( $("#here").parent() );
+    	
+	console.log("-- #here의 조상노드 --");
+	console.log( $("#here").parents() );
+
+	console.log("-- #here의 조상노드 중 #third --");
+	console.log( $("#here").parents( "#third" ) );
+	
+    //---------------------------------------------------------------
+
+    console.log("-- #third의 이전 인접 형제 --");
+	console.log( $("#third").prev() );
+	
+	console.log("-- #third의 이전 일반 형제 --");
+	console.log( $("#third").prevAll() );
+	//셋을 기준으로 가까운순으로 담겨 있다.
+	
+	//---------------------------------------------------------------
+
+	console.log("-- #third의 다음 인접 형제 --");
+	console.log("-- #third + * --");
+	console.log( $("#third").next() );
+	
+	console.log("-- #third의 다음 일반 형제 --");
+	console.log("-- #third ~ * --");
+	console.log( $("#third").nextAll() );
+
+    //'3-2' 를 클릭하면 '둘' 을 빨강색으로 변경
+    $("#here").click(function() {
+		$(this).parent().parent().prev().css('color','red');
+	});
+
+});    
+</script>
+</head>
+
+<body>
+
+<div>
+
+<ul>
+	<li>하나</li>
+	<li>둘</li>
+	<li id="third">
+		셋
+		<ul>
+			<li>3-1</li>
+			<li id="here">3-2</li>
+			<li>3-3</li>
+		</ul>
+	</li>
+	<li>넷</li>
+	<li>다섯</li>
+</ul>
+
+</div>
+
+</body>
+</html>

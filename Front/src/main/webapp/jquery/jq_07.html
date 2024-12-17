@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	
+	//새로운 <div>태그 노드 객체 생성하기
+	//document.createElement("div");
+	var $div = $("<div>");
+	
+	//객체는 생성되어 출력으로 확인할 수 있다
+	//하지만, DOM트리에는 추가되지 않아 화면에는 없다
+	console.log( $div );
+	
+	//새로 생성된 객체는 DOM트리에 추가되지 않아 찾을 수 없다
+	console.log( $("div") );
+	
+	//----------------------------------------------------------------------
+	
+	var $myDiv = $("div#myDiv");
+	
+	//#myDiv 노드의 자식으로 새로운 <div> ($div) 를 추가한다
+	$myDiv.append( $div );	
+	
+	//----------------------------------------------------------------------
+
+	$myDiv.append( $("<div>Hello</div>") );
+	
+	//----------------------------------------------------------------------
+
+	var $newDiv = 
+		$("<div>")
+		.append( $("<ul>")
+			.append( $("<li>").html("헬로") )
+			.append( $("<li>").html("하이") )
+		)
+		.append( $("<ul>")
+			.append( $("<li>").html("Hello") )
+			.append( $("<li>").html("Hi") )
+		);
+	//<body> == document.body
+	//<body> 객체를 jQuery 객체로 변환하고
+	//$newDiv를 자식으로 추가한다.
+	$( document.body ).append( $newDiv );
+
+	//----------------------------------------------------------------------
+	
+	//객체 복사하기
+	
+	var $cloneDiv = $newDiv.clone();
+	
+	$(document.body)
+	.append("<hr>")
+	.append( $cloneDiv );
+});
+</script>
+<body>
+
+<div id="myDiv">
+	<p>안녕</p>
+</div>
+
+</body>
+</html>
