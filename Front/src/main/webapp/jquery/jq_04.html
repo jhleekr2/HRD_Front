@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+    //p태그들 선택
+    var $p = $("p");
+    console.log( $p );
+	//--------------------------------------------------------------------------
+
+	console.log("-- $p.eq(idx) --");
+	console.log( $p.eq(0) ); // jQuery DOM 객체로 반환
+
+	console.log('-- $p.get(idx) --');
+	console.log( $p.get(1) ); // JS DOM 객체로 반환
+	
+	console.log('-- $p[idx] --');
+	console.log( $p[2] ); // JS DOM 객체로 반환
+    // $p.get(idx) == $p[idx]
+
+	//글자색 빨강으로 설정
+// 	$p.get(1) -> JS DOM API -> .style
+
+	$p.get(1).style.color = 'red';
+
+})
+</script>
+</head>
+<body>
+
+<div>
+	<span>하나</span>
+	<p>둘</p>
+	<pre>셋</pre>
+	<p>넷</p>
+	<p>다섯</p>
+</div>
+
+</body>
+</html>
