@@ -19,7 +19,7 @@ public class MemberLoginController extends HttpServlet {
 
 	//컨트롤러에 서비스를 연결
 	private MemberService memberService = new MemberServiceImpl();
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("/member/login [GET]");

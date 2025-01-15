@@ -20,16 +20,16 @@
 <%-- 비로그인 상태 --%>
 <c:if test="${empty login }">
 
-<a href="/member/login"><button>로그인</button></a>
-<a href="/member/join"><button>회원가입</button></a>
+<a href="/member/login"><button class="btn btn-primary">로그인</button></a>
+<a href="/member/join"><button class="btn btn-success">회원가입</button></a>
 
 </c:if>
 
 <%-- 로그인 상태 --%>
 <c:if test ="${not empty login and login eq true }">
 
-<a href="/board/list"><button>게시판 목록</button></a>
-<a href="/member/logout"><button>로그아웃</button></a>
+<a href="/board/list" class="btn btn-info">게시판 목록</a>
+<a href="/member/logout" class="btn btn-warning">로그아웃</a>
 
 </c:if>
 <hr>

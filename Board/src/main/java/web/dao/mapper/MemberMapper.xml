@@ -29,4 +29,12 @@
 		INSERT INTO member( userid, userpw, usernick )
 		 VALUES ( #{userid}, #{userpw}, #{usernick})
 	</insert>
+	
+	<select id="selectUsernickByUserid" resultType="string" parameterType="web.dto.Board">
+		SELECT usernick FROM member
+		<where>
+			AND userid = #{userid }
+		</where>
+	</select>
+
 </mapper>

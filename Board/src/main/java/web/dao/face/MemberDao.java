@@ -1,5 +1,6 @@
 package web.dao.face;
 
+import web.dto.Board;
 import web.dto.Member;
 
 public interface MemberDao {
@@ -26,6 +27,13 @@ public interface MemberDao {
 	 * @param param - 등록할 아이디와 패스워드, 닉네임을 가진 DTO객체
 	 */
 	public void insert(Member param);
+
+	/**
+	 * 게시글 작성자의 회원정보를 조회한다
+	 * @param param - 작성자 정보 포함된 게시글 내용 객체
+	 * @return 작성자 회원정보
+	 */
+	public String selectUsernickByUserid(Board param);
 
 
 }

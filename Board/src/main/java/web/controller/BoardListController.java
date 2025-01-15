@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import web.dto.Board;
 import web.service.face.BoardService;
 import web.service.impl.BoardServiceImpl;
+import web.util.Paging;
 
 @WebServlet("/board/list")
 public class BoardListController extends HttpServlet {
@@ -25,10 +26,10 @@ public class BoardListController extends HttpServlet {
 		System.out.println("/board/list [GET]");
 		
 		//전달파라미터를 이용해서 현재 페이징 객체 알아내기
-//		Paging paging = boardService.getPaging(req);
+		Paging paging = boardService.getPaging(req);
 		
 		//페이징 객체를 MODEL값으로 전달
-//		req.setAttribute("paging", paging);
+		req.setAttribute("paging", paging);
 		
 		//서비스의 getList() 함수를 호출 - 컨트롤러 -> BoardService -> BoardServiceImpl (서비스)로 전달
 		//이후 서비스가 다시 DAO를 호출하고, DAO가 DB연결 함수를 호출하며
@@ -37,7 +38,10 @@ public class BoardListController extends HttpServlet {
 		
 		//사용법 - List<DTO> 반환값을 저장할 변수 = 서비스.메소드(전달값);
 		//게시글 전체 조회
-		List<Board> list = boardService.getList();
+//		List<Board> list = boardService.getList();
+		
+		//게시글 페이징 리스트 조회
+		List<Board> list = boardService.getList(paging);
 		
 		//[TEST] 조회 결과 확인
 //		if( list == null )	System.out.println("list 반환값 없음");

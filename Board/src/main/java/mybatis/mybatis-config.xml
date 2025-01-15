@@ -39,6 +39,7 @@
 	
 	<mappers>
 		<mapper resource="web/dao/mapper/BoardMapper.xml"/>
+		<mapper resource="web/dao/mapper/BoardFileMapper.xml"/>
 <!-- 		org.apache.ibatis.binding.BindingException: Type interface web.dao.face.MemberDao is not known to the MapperRegistry. -->
 <!-- 		Mapping 리소스가 제대로 추가되지 않았을 때 발생하는 에러 -->
 		<mapper resource="web/dao/mapper/MemberMapper.xml"/>

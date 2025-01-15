@@ -3,6 +3,7 @@ package web.dao.face;
 import java.util.List;
 
 import web.dto.Board;
+import web.util.Paging;
 
 public interface BoardDao {
 
@@ -25,5 +26,42 @@ public interface BoardDao {
 	 * @return UPDATE 수행 결과
 	 */
 	public void updateHit(Board param);
+
+	/**
+	 * 총 게시글 수 조회하기
+	 * 
+	 * @return 테이블의 전체 행 수
+	 */
+	public int selectCntAll();
+
+	/**
+	 * 테이블의 페이징이 적용된 리스트 조회하기
+	 * 
+	 * @param paging - 페이징 정보 객체
+	 * @return 조회된 페이징 리스트
+	 */
+	public List<Board> selectPaging(Paging paging);
+	
+	/**
+	 * 새로운 게시글 등록
+	 * @param param 등록할 게시글의 내용이 들어있는 DTO 객체
+	 * @return INSERT 수행 결과
+	 */
+	public int insert(Board param);
+
+	/**
+	 * 게시글 수정하기
+	 * @param param - 수정할 내용을 담은 DTO 객체
+	 * @return UPDATE 수행 결과
+	 */
+	public int update(Board param);
+
+	/**
+	 * 게시글 삭제하기
+	 * @param param - 삭제할 내용을 담은 DTO 객체
+	 */
+	public void delete(Board param);
+
+
 
 }

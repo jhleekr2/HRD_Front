@@ -1,25 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:import url="../layout/header.jsp" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 
 <h1>회원가입</h1>
 <hr>
 
+<div class="col-8 mx auto">
 <form action="<%=request.getContextPath() %>" method="post">
 
-	<label for="joinid">아이디 <input type="text" name="joinid" id="joinid" value="a"></label><br>
-	<label for="joinpw">패스워드 <input type="text" name="joinpw" id="joinpw" value="b"></label><br>
-	<label for="nickname">닉네임 <input type="text" name="nickname" id="nickname" value="c"></label><br>
+<div class="row mb-3">
+	<label class="col-3 col-form-label" for="joinid">아이디</label>
+	<div class="col-9">
+		<input type="text" name="joinid" id="joinid" value="a"><br>
+	</div>
+</div>
+
+<div class="row mb-3">
+	<label class="col-3 col-form-label" for="joinpw">패스워드</label>
+	<div class="col-9">
+		<input type="text" name="joinpw" id="joinpw" value="b"><br>
+	</div>
+</div>
+
+<div class="row mb-3">
+	<label class="col-3 col-form-label" for="nickname">닉네임</label>
+	<div class="col-9">
+		<input type="text" name="nickname" id="nickname" value="c"><br>
+	</div>
+</div>
 	
-	<button>회원가입</button>
+	<button class="btn btn-success">회원가입</button>
 	
 </form>
+</div>
 
-</body>
-</html>
+<c:import url="../layout/footer.jsp" />

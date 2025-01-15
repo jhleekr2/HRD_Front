@@ -35,7 +35,7 @@ $(function() {
 
 <tr>
 <td class="table-info">아이디</td><td>${detail.userid }</td>
-<td class="table-info">닉네임</td><td>[ 추후 추가 ]</td>
+<td class="table-info">닉네임</td><td>${writernick }</td>
 </tr>
 
 <tr>
@@ -54,6 +54,14 @@ $(function() {
 </tr>
 
 </table>
+
+<div class="mb-3">
+	<c:if test="${not empty boardFile }">
+	<a href="../upload/${boardFile.storedName }" download="${boardFile.originName }">
+		${boardFile.originName }
+	</a>
+	</c:if>
+</div>
 
 <div class="text-center">
 <a href="./list"><button class="btn btn-primary">목록</button></a>
